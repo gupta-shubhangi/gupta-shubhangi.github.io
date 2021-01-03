@@ -1,5 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
+
+@media (min-width: 544px) {  
+  h1 {font-size:1.5rem;}
+  p {font-size: 0.8rem;}
+  h7 {font-size: 0.7rem;}
+  .news p{font-size: 0.7rem;} /*1rem = 16px*/
+}
+ 
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+  h1 {font-size:2rem;}
+  p {font-size: 0.9rem;}
+  h7 {font-size: 0.7rem;}
+  .news p{font-size: 0.7rem;} /*1rem = 16px*/
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  h1 {font-size:2.5rem;}
+  p {font-size: 1rem;}
+  h7 {font-size: 0.8rem;}
+  .news p{font-size: 0.8rem;} /*1rem = 16px*/
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 2000px) {  
+  h1 {font-size:3.2rem;}
+  p {font-size: 1.1rem;}
+  h7 {font-size: 1.1rem;}
+  .news p{font-size: 1.1rem;}
+  h6 {font-size: 1.2rem;}
+  .nav-link {font-size: 1.2rem;} /*1rem = 16px*/    
+}
+
 html, body {
 	height: 100%;
 	width: 100%;
@@ -11,7 +45,7 @@ html, body {
 p {
 	color: #707070;
 	font-family: 'Lato';
-	font-size: 1rem;
+	/*font-size: 1rem;*/
 	letter-spacing: 0.2px;
 }
 
@@ -29,7 +63,7 @@ a{
 }
 
 .nav-link {
-	font-size: 1rem !important ;
+	font-size: 1rem ;
 }
 
 .intro h1 {
@@ -37,14 +71,14 @@ a{
 	color: #DA627D;
 	font-family: 'Arbutus Slab', serif;
 	font-weight: 00;
-	font-size: 2.8rem;
+	/*font-size: 2.8rem;*/
 }
 
 .intro p {
 	/*padding-bottom: 2rem;*/
 	color: #707070;
 	font-family: 'Lato';
-	font-size: 1rem;
+	/*font-size: 1rem;*/
 	letter-spacing: 0.2px;
 	line-height: 1.8rem;
 
@@ -58,7 +92,7 @@ a{
 
 .news h7 {
 	
-	font-size: 0.8rem;
+	/*font-size: 0.8rem;*/
 	/*padding-top: 1rem;*/
 	color: #DA627D;
 	font-weight: bolder;
@@ -70,7 +104,7 @@ a{
 	
 	color: #707070;
 	font-family: 'Lato';
-	font-size: 0.8rem;
+	/*font-size: 0.8rem;*/
 	letter-spacing: 0.2px;
 }
 
@@ -85,14 +119,15 @@ padding-top: 1rem;
 
 
 #mylogo{
-	width: 7rem;
-	padding-left: 1rem;
+	width: 6.5rem;
+	/*padding-left: 0.8rem;*/
 }
 
 .section-heading {
 	color: #DA627D;
 	font-weight: bolder;
 	padding-bottom: 3rem;
+	padding-left: 0;
 }
 
 
@@ -166,7 +201,7 @@ letter-spacing: 0.2px;
 
 
 .one-publication p{
-font-size: 0.9rem;
+/*font-size: 0.9rem;*/
 color: #707070;
 margin-bottom: 0.5rem;
 }
@@ -220,7 +255,8 @@ margin-bottom: 0.5rem;
 
 .project-image img{
 	width: 100%;
-	margin: 2rem;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 
 .project-image p{
