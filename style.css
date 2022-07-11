@@ -86,7 +86,7 @@ a{
 
 #introFirstLine{
 
-	padding-top: 2rem;
+	padding-top: 0.5rem;
 }
 
 
@@ -190,6 +190,15 @@ letter-spacing: 0.2px;
 	border-radius: 10px; 
 }
 
+.selected-projects h2 {
+	color: #DA627D;
+	font-family: 'Arbutus Slab', serif;
+	font-weight: 00;
+	font-size: 1.2rem;
+	padding-bottom: 2rem;
+	padding-top: 3rem;
+}
+
 .Publications h2 {
 	color: #DA627D;
 	font-family: 'Arbutus Slab', serif;
@@ -211,7 +220,6 @@ margin-bottom: 0.5rem;
 }
 
 .recent-updates h2 {
-	color: #DA627D;
 	font-family: 'Arbutus Slab', serif;
 	font-weight: 00;
 	font-size: 1.2rem;
@@ -219,8 +227,11 @@ margin-bottom: 0.5rem;
 	padding-top: 3rem;
 }
 
+
 .recent-updates b{
-	font-weight: 800;
+	font-weight: 600;
+		color: #DA627D;
+
 }
 
 .project {
