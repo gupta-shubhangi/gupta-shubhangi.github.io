@@ -275,3 +275,42 @@ margin-bottom: 0.5rem;
 	font-style: italic;
 	font-size: 0.8rem;
 }
+
+.workshop h1 {
+	/*padding-bottom: 2rem;*/
+	color: #B80C09;
+	font-family: 'Gabarito', sans-serif;
+	font-weight: 00;
+	font-size: 1.5rem;
+}
+
+.workshop p {
+	/*padding-bottom: 2rem;*/
+	color: #707070;
+	font-family: 'Lato';
+	font-size: 1rem;
+	letter-spacing: 0.2px;
+	line-height: 1.8rem;
+
+}
+
+.hero-image {
+  background-image: url("Projects/Workshop/bg.jpg");
+  background-color: #cccccc;
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: 'Gabarito', sans-serif;
+
+}
