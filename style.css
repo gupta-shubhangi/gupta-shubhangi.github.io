@@ -5,7 +5,7 @@
   h1 {font-size:1.5rem;}
   p {font-size: 0.8rem;}
   h7 {font-size: 0.7rem;}
-  .news p{font-size: 0.7rem;} /*1rem = 16px*/
+  /*.news p{font-size: 1rem;} /*1rem = 16px*/*/
 }
  
 /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
@@ -13,7 +13,7 @@
   h1 {font-size:2rem;}
   p {font-size: 0.9rem;}
   h7 {font-size: 0.7rem;}
-  .news p{font-size: 0.7rem;} /*1rem = 16px*/
+  /*.news p{font-size: 0.9rem;} /*1rem = 16px*/*/
 }
  
 /* Large devices (desktops, 992px and up) */
@@ -21,7 +21,7 @@
   h1 {font-size:2.5rem;}
   p {font-size: 1rem;}
   h7 {font-size: 0.8rem;}
-  .news p{font-size: 0.8rem;} /*1rem = 16px*/
+  /*.news p{font-size: 1rem;} /*1rem = 16px*/*/
 }
  
 /* Extra large devices (large desktops, 1200px and up) */
@@ -29,7 +29,7 @@
   h1 {font-size:3.2rem;}
   p {font-size: 1.1rem;}
   h7 {font-size: 1.1rem;}
-  .news p{font-size: 1.1rem;}
+  /*.news p{font-size: 1.1rem;}*/
   h6 {font-size: 1.2rem;}
   .nav-link {font-size: 1.2rem;} /*1rem = 16px*/    
 }
@@ -92,13 +92,24 @@ a{
 
 .news h7 {
 	
-	/*font-size: 0.8rem;*/
+	font-size: 1rem;
 	/*padding-top: 1rem;*/
 	color: #DA627D;
 	font-weight: bolder;
 	font-family: 'Lato', serif;
 
 }
+
+.intro h7 {
+	
+	font-size: 1rem;
+	/*padding-top: 1rem;*/
+	color: #DA627D;
+	font-weight: bolder;
+	font-family: 'Lato', serif;
+
+}
+
 
 .news p {
 	
@@ -109,6 +120,10 @@ a{
 }
 
 .newsListSmall {
+padding-top: 1rem;
+}
+
+.publicationsSmall {
 padding-top: 1rem;
 }
 
