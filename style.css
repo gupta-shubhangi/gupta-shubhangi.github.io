@@ -263,14 +263,19 @@ margin-bottom: 0.5rem;
 	color: #707070;
 	padding-top: 0.3rem;
 	padding-bottom: 2rem;
-	font-size: 0.9rem;
+	/*font-size: 0.9rem;*/
 }
+
+.card-title-des {
+	font-style: italic;
+}
+
 
 .project-section h6 {
 	padding-bottom: 1rem;
 	font-weight: 700;
 	color: #DA627D;
-	font-size: 0.9rem;
+	/*font-size: 0.9rem;*/
 	padding-top: 1.5rem;
 
 }
