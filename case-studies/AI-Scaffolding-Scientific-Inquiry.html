@@ -92,6 +92,87 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 3rem 1rem;
 }
 
+.case-study-header {
+	background: var(--surface);
+	padding: 3rem 1rem 2rem 1rem;
+	margin-bottom: 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.case-study-header .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.case-study-header h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin-bottom: 0.5rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.case-study-header p {
+	font-size: 1.05rem;
+	color: var(--secondary);
+	font-weight: 400;
+	margin-bottom: 0;
+}
+
+.project-meta {
+	display: flex;
+	gap: 2rem;
+	margin-top: 1rem;
+	flex-wrap: wrap;
+}
+
+.meta-item {
+	font-size: 0.9rem;
+	color: var(--secondary);
+}
+
+.meta-item strong {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+.at-a-glance {
+	background: var(--surface);
+	border-left: 4px solid var(--accent);
+	padding: 2.5rem;
+	margin: 3rem 0;
+	border-radius: 0 12px 12px 0;
+	box-shadow: 0 2px 12px rgba(164, 121, 151, 0.08);
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--accent);
+}
+
+.at-a-glance h6 {
+	font-family: 'DM Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	font-size: 0.7rem;
+	font-weight: 700;
+	color: var(--accent);
+	margin-bottom: 1.5rem;
+}
+
+.at-a-glance p {
+	margin-bottom: 1.25rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+
+.at-a-glance p:last-child {
+	margin-bottom: 0;
+}
+
+.at-a-glance strong {
+	font-weight: 600;
+	color: var(--accent);
+}
 
 .stats-row {
 	display: grid;
@@ -181,7 +262,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .impact-highlight {
-	background: linear-gradient(135deg, var(--ivory) 0%, var(--champagne) 100%);
+	background: var(--ivory);
 	position: relative;
 	padding: 3rem 2.5rem;
 	border-radius: 8px;
@@ -198,7 +279,7 @@ h1, h2, h3, h4, h5, h6 {
 	left: 0;
 	right: 0;
 	height: 4px;
-	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	background: var(--accent);
 	border-radius: 8px 8px 0 0;
 }
 
@@ -436,10 +517,34 @@ nav.navbar .container {
 	</div>
 	</nav>
 
+	<!-- Case Study Header -->
+	<div class="case-study-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2>AI Scaffolding for Scientific Inquiry</h2>
+					<p>How Object Detection Supports Museum Visitors' Observational Inquiry</p>
+
+					<div class="project-meta">
+						<div class="meta-item"><strong>Timeline:</strong> 2025 (Ongoing)</div>
+						<div class="meta-item"><strong>Organization:</strong> Exploratorium, San Francisco</div>
+						<div class="meta-item"><strong>My Role:</strong> HCI Researcher</div>
+						<div class="meta-item"><strong>Type:</strong> Product Research</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Main Content -->
 	<div class="content-wrapper">
-		<h2>AI Scaffolding for Scientific Inquiry</h2>
-		<h6>How Object Detection Supports Museum Visitors' Observational Inquiry</h6>
+
+		<!-- At a Glance -->
+		<div class="at-a-glance" id="section-glance">
+			<h6>At a Glance</h6>
+			<p><strong>Challenge:</strong> Museums provide direct access to scientific tools like microscopes, but visitors struggle to use them productively. As AI increasingly transforms scientific practice, we lack understanding of how to design AI that supports (rather than replaces) observational inquiry.</p>
+			<p><strong>Outcome:</strong> Developed interaction analysis insights revealing how Object Classification Systems mediate visitor sensemaking during scientific inquiry, with design recommendations for AI-enhanced microscope exhibits.</p>
+		</div>
 
 		<!-- Research Challenge -->
 		<div class="project-section">

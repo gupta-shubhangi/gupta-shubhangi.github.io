@@ -87,6 +87,82 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 3rem 1rem;
 }
 
+.case-study-header {
+	background: var(--surface);
+	padding: 3rem 1rem 2rem 1rem;
+	margin-bottom: 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.case-study-header .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.case-study-header h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin-bottom: 0.5rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.case-study-header p {
+	font-size: 1.05rem;
+	color: var(--secondary);
+	font-weight: 400;
+	margin-bottom: 0;
+}
+
+.project-meta {
+	display: flex;
+	gap: 1.25rem;
+	margin-top: 1.25rem;
+	flex-wrap: wrap;
+	font-size: 1.05rem;
+}
+
+.meta-item {
+	color: var(--secondary);
+}
+
+.meta-item strong {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+.at-a-glance {
+	background: var(--surface);
+	border-left: 4px solid var(--accent);
+	padding: 2.5rem;
+	margin: 3rem 0;
+	border-radius: 0 12px 12px 0;
+	box-shadow: 0 2px 12px rgba(164, 121, 151, 0.08);
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--accent);
+}
+
+.at-a-glance h6 {
+	font-family: 'DM Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	font-size: 0.7rem;
+	font-weight: 700;
+	color: var(--accent);
+	margin-bottom: 1.5rem;
+}
+
+.at-a-glance p {
+	margin-bottom: 1.25rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+
+.at-a-glance p:last-child {
+	margin-bottom: 0;
+}
 
 .at-a-glance strong {
 	font-weight: 600;
@@ -230,7 +306,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .impact-highlight {
-	background: linear-gradient(135deg, var(--ivory) 0%, var(--champagne) 100%);
+	background: var(--ivory);
 	color: var(--primary);
 	padding: 3rem 2.75rem;
 	border-radius: 12px;
@@ -248,7 +324,7 @@ h1, h2, h3, h4, h5, h6 {
 	left: 0;
 	right: 0;
 	height: 4px;
-	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	background: var(--accent);
 	border-radius: 12px 12px 0 0;
 }
 
@@ -381,28 +457,51 @@ em {
 	</div>
 	</nav>
 
+	<!-- Case Study Header -->
+	<div class="case-study-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2>Unpacking Learners' Engagement with AI Exhibits</h2>
+					<p>Designing for Diverse Learning Pathways in Museum Technology</p>
+
+					<div class="project-meta">
+						<div class="meta-item"><strong>Timeline:</strong> 2025 (Ongoing)</div>
+						<div class="meta-item"><strong>Organization:</strong> Exploratorium, San Francisco</div>
+						<div class="meta-item"><strong>My Role:</strong> HCI Researcher</div>
+						<div class="meta-item"><strong>Type:</strong> Foundational Research</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- Main Content -->
 	<div class="content-wrapper">
-		<h2>Unpacking Learners' Engagement with AI Exhibits</h2>
-		<h6>Designing for Diverse Learning Pathways in Museum Technology</h6>
+
+		<!-- At a Glance -->
+		<div class="at-a-glance" id="section-glance">
+			<h6>At a Glance</h6>
+			<p><strong>Challenge:</strong> Museums increasingly are exploring the use of AI technologies for learning, but lack frameworks to understand how visitors engage with these exhibits and what design features support different learning pathways.</p>
+			<p><strong>Outcome:</strong> Developed a research-based framework identifying seven core engagement behaviors (questioning, consuming, creating, explaining, connecting, predicting, evaluating) and mapped them to participation genres (Hanging Out, Messing Around, Geeking Out), providing actionable design guidance.</p>
+		</div>
 
 		<div class="project-section">
-					<h6>The Challenge</h6>
-					<p>The Exploratorium's 'Adventures in AI' exhibition featured 30+ interactive technological exhibits designed to teach visitors about artificial intelligence concepts, such as word embeddings, neural networks, bias in data, and more. AI literacy in informal learning is a new and emerging field. As such, we have a:
+			<h6>The Challenge</h6>
+			<p>The Exploratorium's 'Adventures in AI' exhibition featured 30+ interactive technological exhibits designed to teach visitors about artificial intelligence concepts, such as word embeddings, neural networks, bias in data, and more. AI literacy in informal learning is a new and emerging field. As such, we have a:
 
-					<ul>
-						<li><strong>Limited understanding</strong> of how museum visitors interact with AI exhibits in social, self-directed contexts</li>
-						<li><strong>Lack of frameworks</strong> to characterize the quality of engagement in relation to learning content</li>
-						<li><strong>Unclear design guidance</strong> on which features support which types of engagement</li>
-						<li><strong>Need for accessible language</strong> to communicate findings across stakeholders (designers, educators, researchers)</li>
-					</ul>
+			<ul>
+				<li><strong>Limited understanding</strong> of how museum visitors interact with AI exhibits in social, self-directed contexts</li>
+				<li><strong>Lack of frameworks</strong> to characterize the quality of engagement in relation to learning content</li>
+				<li><strong>Unclear design guidance</strong> on which features support which types of engagement</li>
+				<li><strong>Need for accessible language</strong> to communicate findings across stakeholders (designers, educators, researchers)</li>
+			</ul>
 
-					<p> This led us to ask: </p>
+			<p> This led us to ask: </p>
 
-					<div class="research-question"><strong>Research Question:</strong><em>How do visitors engage with interactive technological exhibits in museums, and what design features support diverse engagement types?</em></div>
+			<div class="research-question"><strong>Research Question:</strong><em>How do visitors engage with interactive technological exhibits in museums, and what design features support diverse engagement types?</em></div>
 
-		
-				</div>
+		</div>
 
 				<!-- My Role -->
 				<div class="project-section">

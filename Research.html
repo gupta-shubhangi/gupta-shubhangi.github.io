@@ -42,6 +42,10 @@ h1, h2, h3, h4, h5, h6 {
 	color: var(--primary);
 }
 
+h2 {
+	color: #c4717e;
+}
+
 .navbar {
 	background-color: var(--surface) !important;
 	border-bottom: 2px solid var(--border);
@@ -107,7 +111,21 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 0;
 	border-radius: 0;
 	margin-bottom: 0.75rem;
+	margin-right: 0.5rem;
 	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.password-protected-tag {
+	display: inline-block;
+	background-color: var(--accent);
+	color: white;
+	font-size: 0.65rem;
+	padding: 0.35rem 0.6rem;
+	border-radius: 4px;
+	margin-bottom: 0.75rem;
+	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 }
@@ -211,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
 					<div class="card border-0">
 						<img class="card-img-top" src="Projects/image3.png" alt="AI Scaffolding Research">
 						<div class="card-body">
-							<span class="project-tag">PRODUCT RESEARCH</span>
+							<span class="project-tag">PRODUCT RESEARCH</span><span class="password-protected-tag">🔒 Password Protected</span>
 							<h6 class="card-title">AI Scaffolding for Scientific Inquiry</h6>
 							<h6 class="card-title-des">Exploratorium • 2025 (ongoing)</h6>
 							<p class="card-text">Investigating how AI-powered Object Classification Systems support museum visitors' observational inquiry with microscopes.</p>
@@ -227,8 +245,8 @@ h1, h2, h3, h4, h5, h6 {
 					<div class="card border-0">
 						<img class="card-img-top" src="Projects/image1.jpg" alt="Visitor Engagement Research">
 						<div class="card-body">
-							<span class="project-tag">FOUNDTIONAL RESEARCH</span>
-							<h6 class="card-title">Unpacking Learners’ Engagement with AI Exhibits</h6>
+							<span class="project-tag">FOUNDTIONAL RESEARCH</span><span class="password-protected-tag">🔒 Password Protected</span>
+							<h6 class="card-title">Unpacking Learners' Engagement with AI Exhibits</h6>
 							<h6 class="card-title-des">Exploratorium • 2025 (ongoing)</h6>
 							<p class="card-text">Understanding how museum visitors engage with interactive AI exhibits and what design features support diverse learning pathways.</p>
 							<p style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0;">Ethnographic Field Work • Naturalistic Recording and Abductive Coding</p>
