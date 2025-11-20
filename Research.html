@@ -16,7 +16,7 @@
 /* REFINED MAUVE PALETTE */
 :root {
 	--primary: #3D3034;
-	--accent: #A47997;
+	--accent: #c4717e;
 	--accent-light: #C4A4B7;
 	--secondary: #6B5D5A;
 	--rose-gold: #B76E79;
@@ -44,6 +44,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {
 	color: #c4717e;
+	margin-bottom: 0.25rem;
 }
 
 .navbar {
@@ -118,16 +119,18 @@ h2 {
 }
 
 .password-protected-tag {
-	display: inline-block;
-	background-color: var(--accent);
-	color: white;
+	display: block;
+	background-color: var(--champagne);
+	color: var(--secondary);
 	font-size: 0.65rem;
 	padding: 0.35rem 0.6rem;
 	border-radius: 4px;
 	margin-bottom: 0.75rem;
+	margin-top: 0.5rem;
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
+	width: fit-content;
 }
 
 .card-title {
@@ -245,7 +248,7 @@ h2 {
 					<div class="card border-0">
 						<img class="card-img-top" src="Projects/image1.jpg" alt="Visitor Engagement Research">
 						<div class="card-body">
-							<span class="project-tag">FOUNDTIONAL RESEARCH</span><span class="password-protected-tag">🔒 Password Protected</span>
+							<span class="project-tag">FOUNDATIONAL RESEARCH</span><span class="password-protected-tag">🔒 Password Protected</span>
 							<h6 class="card-title">Unpacking Learners' Engagement with AI Exhibits</h6>
 							<h6 class="card-title-des">Exploratorium • 2025 (ongoing)</h6>
 							<p class="card-text">Understanding how museum visitors engage with interactive AI exhibits and what design features support diverse learning pathways.</p>

@@ -16,7 +16,7 @@
 /* REFINED MAUVE PALETTE */
 :root {
 	--primary: #3D3034;
-	--accent: #A47997;
+	--accent: #c4717e;
 	--accent-light: #C4A4B7;
 	--secondary: #6B5D5A;
 	--rose-gold: #B76E79;
@@ -102,12 +102,49 @@ h2 {
 	font-family: 'Crimson Text', serif;
 }
 
-.project h6:first-of-type {
+.case-study-header {
+	background: var(--surface);
+	padding: 3rem 1rem 2rem 1rem;
+	margin-bottom: 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.case-study-header .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.case-study-header h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin-bottom: 0.5rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.case-study-header p {
 	font-size: 1.05rem;
 	color: var(--secondary);
-	font-weight: 500;
-	margin-bottom: 2.5rem;
-	font-family: 'DM Sans', sans-serif;
+	font-weight: 400;
+	margin-bottom: 0;
+}
+
+.project-meta {
+	display: flex;
+	gap: 1.25rem;
+	margin-top: 1.25rem;
+	flex-wrap: wrap;
+	font-size: 1.05rem;
+}
+
+.meta-item {
+	color: var(--secondary);
+}
+
+.meta-item strong {
+	color: var(--accent);
+	font-weight: 600;
 }
 
 .project-section {
@@ -227,15 +264,31 @@ a:hover {
 	</div>
 	</nav>
 
-	<!-- Introduction and News -->
+	<!-- Case Study Header -->
+	<div class="case-study-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2>User Research for Data Management</h2>
+					<p>Redesigning On-boarding and Navigation for Striim Data Platform</p>
 
+					<div class="project-meta">
+						<div class="meta-item"><strong>Timeline:</strong> Summer 2019</div>
+						<div class="meta-item"><strong>Organization:</strong> Striim</div>
+						<div class="meta-item"><strong>My Role:</strong> UX Researcher</div>
+						<div class="meta-item"><strong>Type:</strong> Product Design</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main Content -->
 	<div class="content-wrapper">
-		<div class="project">
-			<h2>Striim: Summer 2019 internship</h2> 
-		    	<h6>May 2019-Aug 2019</h6>
 
-		    	<div class="project-section">
-		    		<h6> OBJECTIVE </h6>
+		<!-- Objective -->
+		<div class="project-section" id="section-objective">
+			<h6>Objective</h6>
 		    	<p> The Striim platform allows users to ingest, process, and deliver real-time data across diverse environments in the cloud or on-premise. As a growing startup, the Striim team has been focusing heavily on the Striim platform's user experience. They also desire to reach a wider user base including folks who may not be experts in data analytics. As part of this internship, my goal was to (a) Redesign the on-boarding to the platform to make it more accessible to novice users, (b) Redesign the home page and navigation bar to allow efficient navigation across the platform for both new and regular users and (c) design a Sketch library to allow other designers in the team to design consistent designs with ease and efficiency. 
 </b> </p>
 
