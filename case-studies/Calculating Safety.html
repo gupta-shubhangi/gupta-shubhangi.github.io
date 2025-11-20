@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculating Safety - Shubhangi Gupta</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="../style.css" rel="stylesheet">
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* REFINED MAUVE PALETTE */
+:root {
+	--primary: #3D3034;
+	--accent: #A47997;
+	--accent-light: #C4A4B7;
+	--secondary: #6B5D5A;
+	--rose-gold: #B76E79;
+	--champagne: #E8D5C4;
+	--taupe: #C9B8AB;
+	--ivory: #FAF7F2;
+	--background: #FAF7F2;
+	--surface: #FFFFFF;
+	--border: #E8DFD6;
+}
+
+body {
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	color: var(--primary);
+	background-color: var(--background);
+	line-height: 1.8;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Crimson Text', serif;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+/* Progress Bar */
+.progress-bar-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: var(--border);
+	z-index: 9999;
+}
+
+.progress-bar {
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	width: 0%;
+	transition: width 0.1s ease;
+}
+
+/* Navigation */
+.navbar {
+	background-color: var(--surface) !important;
+	border-bottom: 2px solid var(--border);
+	padding: 1.25rem 2rem;
+}
+
+.navbar-nav li {
+	padding-right: 2rem;
+	letter-spacing: 0.2px;
+}
+
+.nav-link {
+	color: var(--secondary) !important;
+	font-weight: 500;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+
+.nav-link:hover {
+	color: var(--accent) !important;
+}
+
+#mylogo {
+	width: 6.5rem;
+}
+
+.case-study-header {
+	background: var(--surface);
+	padding: 3rem 1rem 2rem 1rem;
+	margin-bottom: 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.case-study-header .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.case-study-header h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin-bottom: 0.5rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.case-study-header p {
+	font-size: 1.05rem;
+	color: var(--secondary);
+	font-weight: 400;
+	margin-bottom: 0;
+}
+
+.project-meta {
+	display: flex;
+	gap: 1.25rem;
+	margin-top: 1.25rem;
+	flex-wrap: wrap;
+	font-size: 1.05rem;
+}
+
+.meta-item {
+	color: var(--secondary);
+}
+
+.meta-item strong {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+.content-wrapper {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 3rem 1rem;
+}
+
+.at-a-glance {
+	background: var(--surface);
+	border-left: 4px solid var(--accent);
+	padding: 2.5rem;
+	margin: 3rem 0;
+	border-radius: 0 12px 12px 0;
+	box-shadow: 0 2px 12px rgba(164, 121, 151, 0.08);
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--accent);
+}
+
+.at-a-glance h6 {
+	font-family: 'DM Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	font-size: 0.7rem;
+	font-weight: 700;
+	color: var(--accent);
+	margin-bottom: 1.5rem;
+}
+
+.at-a-glance p {
+	margin-bottom: 1.25rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+
+.at-a-glance p:last-child {
+	margin-bottom: 0;
+}
+
+.at-a-glance strong {
+	font-weight: 600;
+	color: var(--accent);
+}
+
+.project-section h6 {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin: 3.5rem 0 1.5rem 0;
+	font-family: 'Crimson Text', serif;
+}
+
+p {
+	margin-bottom: 1.5rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+}
+
+/* Footer */
+.footer {
+	background: var(--surface);
+	border-top: 2px solid var(--border);
+	padding: 3.5rem 0 2.5rem 0;
+	text-align: center;
+	margin-top: 5rem;
+}
+
+.footer p {
+	color: var(--secondary);
+	font-size: 0.9rem;
+}
+
+.social a {
+	color: var(--accent);
+	font-size: 1.75rem;
+	margin: 0 1rem;
+	transition: all 0.3s;
+}
+
+.social a:hover {
+	color: var(--rose-gold);
+	transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+	<!-- Progress Bar -->
+	<div class="progress-bar-container">
+		<div class="progress-bar" id="progressBar"></div>
+	</div>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-md navbar-light bg-white sticky-top">
+		<div class="container">
+			<a class="navbar-brand " href="../index.html"> <img id="mylogo" src="../img/logo.png"></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+  			<div class="collapse navbar-collapse" id="navbarResponsive">
+  				<ul class="navbar-nav ml-auto">
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../About.html"> About </a>
+  					</li>
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../RecentUpdatesMore.html"> News </a>
+  					</li>
+
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Research.html"> Projects </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Publications.html"> Publications </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Shubhangi_CV.pdf" target="_blank"> CV </a>
+  					</li>
+  				</ul>
+  			</div>
+
+	</div>
+	</nav>
+
+	<!-- Case Study Header -->
+	<div class="case-study-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2>Calculating Safety</h2>
+					<p>Research Project</p>
+
+					<div class="project-meta">
+						<div class="meta-item"><strong>Timeline:</strong> Jan 2022 - Ongoing</div>
+						<div class="meta-item"><strong>Status:</strong> In Progress</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main Content -->
+	<div class="content-wrapper">
+
+		<!-- At a Glance -->
+		<div class="at-a-glance">
+			<h6>Project Status</h6>
+			<p><strong>Details forthcoming.</strong> This project is currently in progress. More information will be shared soon.</p>
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<div class="container-fluid" style="padding-top: 8rem;">
+		<div class="footer">
+			<div class=" row text-center">
+				<div class="col-12 social">
+				<a href="https://twitter.com/_shubhangigupta" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.linkedin.com/in/shubhangigupta01/" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href='mailto:"shubhangi@gatech.edu"' target='_blank'><i class='fa fa-envelope'></i></i></a>
+				</div>
+			</div>
+			<div>
+				<p> Thanks for visiting! Let's stay connected. </p>
+				<p>© Shubhangi Gupta</p>
+		     </div>
+		</div>
+	</div>
+
+	<script>
+		// Progress bar functionality
+		window.addEventListener('scroll', function() {
+			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			var scrolled = (winScroll / height) * 100;
+			document.getElementById("progressBar").style.width = scrolled + "%";
+		});
+	</script>
+
+</body>
+</html>

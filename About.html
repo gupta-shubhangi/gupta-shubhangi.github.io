@@ -11,7 +11,116 @@
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<link href="style.css" rel="stylesheet">
 	<style>
-@import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* REFINED MAUVE PALETTE */
+:root {
+	--primary: #3D3034;
+	--accent: #A47997;
+	--accent-light: #C4A4B7;
+	--secondary: #6B5D5A;
+	--rose-gold: #B76E79;
+	--champagne: #E8D5C4;
+	--taupe: #C9B8AB;
+	--ivory: #FAF7F2;
+	--background: #FAF7F2;
+	--surface: #FFFFFF;
+	--border: #E8DFD6;
+}
+
+body {
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	color: var(--primary);
+	background-color: var(--surface);
+	line-height: 1.8;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Crimson Text', serif;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+.navbar {
+	background-color: var(--surface) !important;
+	border-bottom: 2px solid var(--border);
+	padding: 1.25rem 2rem;
+}
+
+.nav-link {
+	color: var(--secondary) !important;
+	font-weight: 500;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+
+.nav-link:hover {
+	color: var(--accent) !important;
+}
+
+#mylogo {
+	width: 6.5rem;
+}
+
+p {
+	color: var(--primary);
+	font-size: 1rem;
+	line-height: 1.8;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+a:hover {
+	color: var(--rose-gold);
+}
+
+h6 {
+	color: var(--accent);
+	font-weight: 600;
+	font-size: 1.1rem;
+	margin-top: 2rem;
+	margin-bottom: 1rem;
+}
+
+.about-me img {
+	max-width: 100%;
+	border-radius: 4px;
+	box-shadow: 0 4px 12px rgba(61, 48, 52, 0.1);
+	float: left;
+	margin-right: 2rem;
+	margin-bottom: 1rem;
+	width: 400px;
+}
+
+/* Footer */
+.footer {
+	border-top: 1px solid var(--border);
+	padding: 3rem 0 2rem;
+	text-align: center;
+	background: var(--surface);
+}
+
+.footer a {
+	color: var(--accent);
+	font-size: 1.3rem;
+	margin: 0 1rem;
+	transition: color 0.2s;
+}
+
+.footer a:hover {
+	color: var(--rose-gold);
+}
+
+.footer p {
+	font-size: 0.95rem;
+	color: var(--secondary);
+	margin: 0.5rem 0;
+}
 </style>
 </head>
 
@@ -49,28 +158,25 @@
 	</nav>
 
 	<div class="container" style="padding-top: 3rem;">
-		<div class="row justify-content-between about-me" >
-
-		<div class="col-12 col-lg-5">
-			<img style= "" src="MyPic3.jpg">   
-  		</div>
-
-  		<div class="col-12 col-lg-7" style="padding-left: 4rem;">
+		<div class="about-me">
+			<img src="MyPic3.jpg">
+			<div>
 		    	<!-- <h3>Hi, I'm Shubhangi! </h3> -->
 		    	
 		    	<p style="padding-top: 1rem;">I have a Ph.D. in <a href="https://dm.lmc.gatech.edu/">Digital Media</a> and a minor in Science and Technology Studies (STS) from the Georgia Institute of Technology where I was advised by <a href="https://loukissas.lmc.gatech.edu/">Dr. Yanni Loukissas</a> as part of the <a href="https://loukissas.lmc.gatech.edu/local-data-design-lab/">Local Data Design Lab</a>. I was funded by the <a href="https://wst.gatech.edu/wst-learning-community">Women, Science, and Technology Learning Community </a> at Georgia Tech.</p><p>I also graduated from the <a href="https://mshci.gatech.edu/">MS-HCI</a> program at Georgia Tech in May 2020 and got my undergraduate degree in May 2018 from the Indian Institute of Technology, Guwahati, where I majored in <a href="https://www.iitg.ac.in/design/">Interaction Design.</a> </p>
-		    	<h6 style="padding-top: 2rem;"> Research and Background</h6>
-		    	<p style="padding-top: 1rem;"> My research draws upon scholarships from critical data and algorithmic studies and science and technology studies (STS) integrated with qualitative and participatory methods to study the intersection of AI and society. </p> 
+
+
+
+		    	<h6 style="padding-top: 1rem;"> Research and Background</h6>
+		    	<p style="padding-top: 1rem;"> My research draws upon scholarships from Human-Computer Interaction, Critical Data and Algorithmic Studies, and Science and Technology Studies (STS) integrated with qualitative and participatory methods to study the intersection of AI and society. </p> 
 		    	<p> In support of my research interests, I have interned at <a href="https://research.ibm.com/projects/responsible-and-inclusive-tech-research">IBM's Responsible and Inclusive Tech team</a> (summer 2022) and <a href="https://safety.google/privacy/ads-and-data/">Google's Ads Privacy and Safety</a>  team (fall 2021). I also identify as an interaction designer and user researcher. In the past, I have interned as a UX designer and researcher at <a href="https://www.striim.com/">Striim inc.</a> (summer 2019), <a href="https://www.lri.fr/presentation_en.php">LRI at Université Paris-Sud</a> (summer 2017), <a href="https://www.microsoft.com/en-us/research/lab/microsoft-research-india/">Microsoft Research India </a>(spring 2017) and <a href="https://cpdm.iisc.ac.in/cpdm/ideaslab/index.php">IDeaS Lab IISc Bangalore</a> (summer 2016). I have had the honor of working with some great scholars in the field of Human-Computer Interaction and Design such as <a href="https://www.lri.fr/~mbl/">Dr. Michel Beaudouin-Lafon</a>, <a href="http://insitu.lri.fr/People/WendyMackay">Dr. Wendy Mackay</a>, <a href="https://cpdm.iisc.ac.in/cpdm/ideaslab/people.php">Dr. Amaresh Chakrabarti</a> and <a href="http://www.sustainability-and-social-innovation.com/people.html">Dr. Pankaj Upadhyay.</a></p>
 
 		    	<h6 style="padding-top: 2rem;"> Other than that..</h6>
 		    	<p style="padding-top: 1rem;">I am from the beautiful country of India and am the loved daughter of a family of four. My parents are currently located in India and my elder brother is in California. We all try to meet up atleast once a year.</p><p> I enjoy dancing and have taken training in the Indian classical dance form of Bharatanatyam. I also play amateur badminton and practice amateur strength training. </p>
 
-		    </div>
-	
-
+			</div>
+		</div>
 	</div>
-</div>
 
 
 

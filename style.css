@@ -68,7 +68,7 @@ a{
 
 .intro h1 {
 	/*padding-bottom: 2rem;*/
-	color: #DA627D;
+	color: #A47997;
 	font-family: 'Arbutus Slab', serif;
 	font-weight: 00;
 	/*font-size: 2.8rem;*/
@@ -94,7 +94,7 @@ a{
 	
 	font-size: 1rem;
 	/*padding-top: 1rem;*/
-	color: #DA627D;
+	color: #A47997;
 	font-weight: bolder;
 	font-family: 'Lato', serif;
 
@@ -104,7 +104,7 @@ a{
 	
 	font-size: 1rem;
 	/*padding-top: 1rem;*/
-	color: #DA627D;
+	color: #A47997;
 	font-weight: bolder;
 	font-family: 'Lato', serif;
 
@@ -139,7 +139,7 @@ padding-top: 1rem;
 }
 
 .section-heading {
-	color: #DA627D;
+	color: #A47997;
 	font-weight: bolder;
 	padding-bottom: 3rem;
 	padding-left: 0;
@@ -172,7 +172,7 @@ padding-top: 1rem;
 }
 
 .fa-twitter, .fa-linkedin, .fa-envelope{
-	color: #DA627D;
+	color: #A47997;
 }
 
 .fa-twitter:hover{
@@ -188,7 +188,7 @@ color: #0e76a8;
 }
 
 .about-me h3{
-color: #DA627D;
+color: #A47997;
 font-weight: 500;
 }
 
@@ -206,7 +206,7 @@ letter-spacing: 0.2px;
 }
 
 .selected-projects h2 {
-	color: #DA627D;
+	color: #A47997;
 	font-family: 'Arbutus Slab', serif;
 	font-weight: 00;
 	font-size: 1.2rem;
@@ -215,7 +215,7 @@ letter-spacing: 0.2px;
 }
 
 .Publications h2 {
-	color: #DA627D;
+	color: #A47997;
 	font-family: 'Arbutus Slab', serif;
 	font-weight: 00;
 	font-size: 1.2rem;
@@ -245,7 +245,7 @@ margin-bottom: 0.5rem;
 
 .recent-updates b{
 	font-weight: 600;
-		color: #DA627D;
+		color: #A47997;
 
 }
 
@@ -254,7 +254,7 @@ margin-bottom: 0.5rem;
 }
 
 .project h2{
-	color: #DA627D;
+	color: #A47997;
 	font-family: 'Arbutus Slab', serif;
 	font-size: 1.4rem;
 }
@@ -274,7 +274,7 @@ margin-bottom: 0.5rem;
 .project-section h6 {
 	padding-bottom: 1rem;
 	font-weight: 700;
-	color: #DA627D;
+	color: #A47997;
 	/*font-size: 0.9rem;*/
 	padding-top: 1.5rem;
 

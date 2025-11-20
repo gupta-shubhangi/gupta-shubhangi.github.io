@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AI Scaffolding for Scientific Inquiry - Shubhangi Gupta</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="../style.css" rel="stylesheet">
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* REFINED MAUVE PALETTE */
+:root {
+	--primary: #3D3034;
+	--accent: #A47997;
+	--accent-light: #C4A4B7;
+	--secondary: #6B5D5A;
+	--rose-gold: #B76E79;
+	--champagne: #E8D5C4;
+	--taupe: #C9B8AB;
+	--ivory: #FAF7F2;
+	--background: #FAF7F2;
+	--surface: #FFFFFF;
+	--border: #E8DFD6;
+}
+
+body {
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	color: var(--primary);
+	background-color: var(--background);
+	line-height: 1.8;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Crimson Text', serif;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+/* Progress Bar */
+.progress-bar-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: var(--border);
+	z-index: 9999;
+}
+
+.progress-bar {
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	width: 0%;
+	transition: width 0.1s ease;
+}
+
+.navbar {
+	background-color: var(--surface) !important;
+	border-bottom: 2px solid var(--border);
+	padding: 1.25rem 2rem;
+}
+
+.navbar-nav li {
+	padding-right: 2rem;
+	letter-spacing: 0.2px;
+}
+
+.nav-link {
+	color: var(--secondary) !important;
+	font-weight: 500;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+
+.nav-link:hover {
+	color: var(--accent) !important;
+}
+
+#mylogo {
+	width: 6.5rem;
+}
+
+.content-wrapper {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 3rem 1rem;
+}
+
+
+.stats-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 1.5rem;
+	margin: 2rem 0;
+}
+
+.stat-box {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	padding: 1.25rem;
+	text-align: center;
+}
+
+.stat-number {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: var(--accent);
+	font-family: 'Crimson Text', serif;
+}
+
+.stat-label {
+	font-size: 0.75rem;
+	color: var(--secondary);
+	margin-top: 0.5rem;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+.insight-box {
+	background-color: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	padding: 1.5rem 2rem;
+	margin: 1.5rem 0;
+}
+
+.insight-box h6 {
+	color: var(--accent);
+	font-weight: 700;
+	margin-bottom: 1rem;
+	font-size: 1rem;
+}
+
+.project-section {
+	margin-bottom: 3rem;
+}
+
+.project-section h6 {
+	font-size: 1.75rem;
+	margin: 0.75rem 0;
+	color: var(--primary);
+}
+
+.role-card {
+	background: var(--surface);
+	border-left: 4px solid var(--accent);
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--accent);
+	padding: 1.5rem 2rem;
+	margin: 1rem 0;
+	border-radius: 4px;
+}
+
+.role-card h6 {
+	color: var(--accent);
+	font-weight: 600;
+	font-size: 1.1rem;
+	margin-bottom: 0.75rem;
+}
+
+.method-card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	padding: 1.5rem 2rem;
+	margin: 1rem 0;
+}
+
+.method-card h6 {
+	color: var(--accent);
+	font-weight: 600;
+	font-size: 1rem;
+	margin-bottom: 0.75rem;
+}
+
+.impact-highlight {
+	background: linear-gradient(135deg, var(--ivory) 0%, var(--champagne) 100%);
+	position: relative;
+	padding: 3rem 2.5rem;
+	border-radius: 8px;
+	margin: 3rem 0;
+	color: var(--primary);
+	border: 1px solid var(--taupe);
+	box-shadow: 0 4px 16px rgba(164, 121, 151, 0.08);
+}
+
+.impact-highlight::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	border-radius: 8px 8px 0 0;
+}
+
+.impact-highlight h6 {
+	color: var(--primary) !important;
+	font-weight: 700;
+	margin-top: 0.5rem;
+	font-size: 1.4rem;
+}
+
+.impact-highlight p {
+	color: var(--primary) !important;
+	font-weight: 500;
+}
+
+.impact-highlight ul,
+.impact-highlight ol {
+	color: var(--primary) !important;
+}
+
+.impact-highlight li {
+	color: var(--primary) !important;
+	margin-bottom: 0.75rem;
+}
+
+.impact-highlight strong {
+	color: var(--accent) !important;
+	font-weight: 600;
+}
+
+.dimension-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+	gap: 1rem;
+	margin: 1.5rem 0;
+}
+
+.dimension-tag {
+	background: var(--accent);
+	color: white;
+	padding: 1rem 0.75rem;
+	border-radius: 4px;
+	text-align: center;
+	font-weight: 600;
+	font-size: 0.8rem;
+	line-height: 1.4;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.research-question {
+	background-color: var(--ivory);
+	padding: 2rem 2.25rem;
+	border-radius: 8px;
+	border-left: 4px solid var(--accent);
+	margin-top: 2rem;
+	margin-bottom: 2.5rem;
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--accent);
+	box-shadow: 0 2px 8px rgba(164, 121, 151, 0.06);
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+
+.research-question strong {
+	color: var(--accent);
+	font-weight: 600;
+	display: block;
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 0.75rem;
+}
+
+.research-question em {
+	color: var(--primary);
+	font-style: italic;
+	font-size: 1.05rem;
+}
+
+.limitation-box {
+	background-color: var(--surface);
+	border-left: 4px solid var(--rose-gold);
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--rose-gold);
+	padding: 1.5rem 2rem;
+	margin: 1.5rem 0;
+	border-radius: 4px;
+}
+
+.limitation-box h6 {
+	color: var(--rose-gold);
+	font-weight: 600;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	font-size: 1rem;
+}
+
+/* General Typography */
+p {
+	font-size: 1rem;
+	color: var(--primary);
+	line-height: 1.8;
+}
+
+ul, ol {
+	color: var(--primary);
+	line-height: 1.8;
+}
+
+li {
+	margin-bottom: 0.5rem;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+a:hover {
+	color: var(--rose-gold);
+}
+
+strong {
+	font-weight: 600;
+	color: var(--primary);
+}
+
+em {
+	font-style: italic;
+	color: var(--secondary);
+}
+
+/* Footer */
+.footer {
+	border-top: 1px solid var(--border);
+	padding: 3rem 0 2rem;
+	text-align: center;
+	background: var(--surface);
+}
+
+.footer a {
+	color: var(--accent);
+	font-size: 1.3rem;
+	margin: 0 1rem;
+}
+
+.footer a:hover {
+	color: var(--rose-gold);
+}
+
+.footer p {
+	font-size: 0.95rem;
+	color: var(--secondary);
+	margin: 0.5rem 0;
+}
+
+nav.navbar .container {
+	max-width: 100% !important;
+	margin: 0 !important;
+}
+
+
+.container {
+	max-width: 900px;
+}
+
+/* Content container constraint */
+.col-12.col-lg-10.offset-lg-1 {
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+</style>
+</head>
+
+<body>
+	<!-- Password Protection -->
+	<script>
+		(function() {
+			const PASSWORD = 'coolNEWstuff';
+			const sessionKey = 'case_study_auth';
+
+			// Check if already authenticated in this session
+			if (sessionStorage.getItem(sessionKey) !== 'true') {
+				const userPassword = prompt('This case study is password protected. Please enter the password:');
+
+				if (userPassword !== PASSWORD) {
+					alert('Incorrect password. Access denied.');
+					window.location.href = 'Research.html';
+					return;
+				}
+
+				// Store authentication in session
+				sessionStorage.setItem(sessionKey, 'true');
+			}
+		})();
+	</script>
+
+	<!-- Progress Bar -->
+	<div class="progress-bar-container">
+		<div class="progress-bar" id="progressBar"></div>
+	</div>
+
+<!-- Navigation -->
+	<nav class="navbar navbar-expand-md navbar-light bg-white sticky-top">
+		<div class="container">
+			<a class="navbar-brand " href="../index.html"> <img id="mylogo" src="../img/logo.png"></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+  			<div class="collapse navbar-collapse" id="navbarResponsive">
+  				<ul class="navbar-nav ml-auto">
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../About.html"> About </a>
+  					</li>
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../RecentUpdatesMore.html"> News </a>
+  					</li>
+
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Research.html"> Projects </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Publications.html"> Publications </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Shubhangi_CV.pdf" target="_blank"> CV </a>
+  					</li>
+  				</ul>
+  			</div>
+
+	</div>
+	</nav>
+
+	<!-- Main Content -->
+	<div class="content-wrapper">
+		<h2>AI Scaffolding for Scientific Inquiry</h2>
+		<h6>How Object Detection Supports Museum Visitors' Observational Inquiry</h6>
+
+		<!-- Research Challenge -->
+		<div class="project-section">
+			<h6>The Challenge</h6>
+			<p>Science museums enable direct observation and experimentation by making authentic scientific tools accessible to the public. However, visitors often find it challenging to use instruments like microscopes productively—they struggle to pose meaningful questions, identify what they're seeing, or interpret complex phenomena.</p>
+
+			<p>As artificial intelligence increasingly transforms scientific practice, it holds promise for supporting public engagement with scientific inquiry. However, currently, HCI researchers lack understanding of:</p>
+
+			<ul>
+				
+				<li><strong>What roles AI plays</strong> in visitor sensemaking processes</li>
+				<li><strong>When AI helps vs. hinders</strong> scientific observation</li>
+				<li><strong>How to design AI</strong> that enhances (not replaces) direct engagement with phenomena</li>
+				<li><strong>How can we consider AI safety and transpareny</strong> in AI based informal learning?</li>
+			</ul>
+
+			<p>This led us to ask:</p>
+
+				<div class="research-question"><strong>Research Question:</strong><em>What roles can AI technologies play in supporting observational inquiry in museums and how can Human-AI interaction design best support inquiry?</em></div>
+
+		</div>
+
+		<!-- My Role -->
+		<div class="project-section">
+			<h6>My Role</h6>
+<!-- 					<p>As UX researcher on this project, I was responsible for:</p>
+ -->					<ul>
+		
+				<li>Interaction analysis of visitor-AI collaborative inquiry (multi-modal data including audio, video, screen recordings, clickstream)</li>
+				<li>Identifying patterns in how OCS mediates observation</li>
+				<li>Synthesis of design implications</li>
+				<li>Exhibit re-design using rapid A/B tests</li>
+			</ul>
+		</div>
+
+		<!-- The Exhibit -->
+		<div class="project-section">
+			<h6>Exhibit Prototype</h6>
+
+			<p>The larger team designed and studied an Object Classification System (OCS)-integrated microscope exhibit that helps visitors observe live microorganisms:</p>
+
+			<div class="insight-box">
+				<p><strong>Physical Setup:</strong></p>
+				<ul>
+					<li>Microscope with live specimen (marine rotifers, algae, microplastic beads)</li>
+					<li>Camera capturing microscope view</li>
+					<li>Touchscreen displaying magnified image with interactive UI</li>
+				</ul>
+
+				<p style="margin-top: 1rem;"><strong>AI Functionality:</strong></p>
+				<ul style="margin-bottom: 0;">
+					<li>Visitors activate OCS during exploration</li>
+					<li>Machine learning model identifies elements in view (rotifer, rotifer parts, poop, algae, microplastic beads)</li>
+					<li>System displays identifications with confidence scores</li>
+					<li>Visitors can explore, question, and test the AI's classifications</li>
+				</ul>
+			</div>
+
+			<p style="font-style: italic; color: #707070; font-size: 0.9rem; margin-top: 1rem;">Note: This exhibit is located at the Exploratorium in San Francisco and is part of ongoing research on AI-enabled informal learning.</p>
+		</div>
+
+		<!-- Research Process -->
+		<div class="project-section">
+			<h6>Research Process</h6>
+
+			<div class="method-card">
+				<h6>Participants & Recruitment</h6>
+				<p><strong>Sample:</strong> 35 visitor dyads (pairs), randomly selected</p>
+				<p><strong>Approach:</strong> Recruited museum visitors to use the exhibit and encouraged them to:</p>
+				<ul>
+					<li>Talk with each other naturally</li>
+					<li>Think aloud about what they observe</li>
+					<li>Ask questions and explore freely</li>
+				</ul>
+				<p style="font-style: italic; color: #707070; font-size: 0.9rem; margin-top: 1rem; margin-bottom: 0;">Note: This recruitment and session facilitation was led by the broader team at the Exploratorium.</p>
+			</div>
+
+			<div class="method-card">
+				<h6>Data Collection (Multi-Modal)</h6>
+				<p>Captured three simultaneous data streams for each dyad:</p>
+				<ul style="margin-bottom: 0;">
+					<li><strong>Audio/video recordings:</strong> Visitor conversations and physical interactions</li>
+					<li><strong>Screen recordings:</strong> Visual record of what appeared on the touchscreen</li>
+					<li><strong>Clickstream data:</strong> Log of all user interactions with the interface</li>
+				</ul>
+				<p style="margin-top: 1rem; font-style: italic; color: #707070;">This multi-modal approach enabled reconstruction of each dyad's complete interaction journey—linking what they said, what they did, and how the AI responded.</p>
+				<p style="font-style: italic; color: #707070; font-size: 0.9rem; margin-top: 1rem; margin-bottom: 0;">Note: Data Collection was led by the broader team at the Exploratorium.</p>
+			</div>
+
+			<div class="method-card">
+				<h6>Analysis Method: Interaction Analysis</h6>
+				<p>I conducted interaction analysis to examine how visitors and the OCS jointly shaped moments of inquiry:</p>
+
+				<p><strong>Step 1: Identify Significant Events</strong></p>
+				<p>Defined significant events as user journeys where visitors conducted observational inquiry by:</p>
+				<ul>
+					<li>Identifying various elements on screen (rotifers, algae, plastic beads, etc.)</li>
+					<li>Asking questions about what they see (descriptive, comparative, explanatory)</li>
+				</ul>
+
+				<p><strong>Step 2: Code OCS Activation</strong></p>
+				<ul>
+					<li>Noted whether OCS was activated during each significant event</li>
+					<li>If activated, inductively coded the role it played</li>
+					<li>Wrote memos connecting patterns across dyads</li>
+				</ul>
+
+				<p><strong>Step 3: Identify Patterns</strong></p>
+				<ul style="margin-bottom: 0;">
+					<li>Analyzed recurring practices of how visitors used OCS classifications</li>
+					<li>Identified both supporting and limiting contexts</li>
+					<li>Synthesized into distinct roles and design implications</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Key Findings -->
+		<div class="project-section">
+			<h6>Prelimiary Findings: Roles of AI in Inquiry</h6>
+
+			<p>I identified four primary roles that OCS plays in microscope-based observational inquiry:</p>
+
+			<div class="role-card">
+				<h6>Role 1: Identification</h6>
+				<p><strong>Example question:</strong> "What is this round thing?"</p>
+				<p><strong>How OCS helps:</strong> Provides labels for unfamiliar objects, enabling visitors to name and discuss what they see.</p>
+				<p style="margin-bottom: 0;"><strong>Inquiry dimension supported:</strong> Discovery—identifying elements on the screen</p>
+			</div>
+
+			<div class="role-card">
+				<h6>Role 2: Finding</h6>
+				<p><strong>Example question:</strong> "Where is the algae?"</p>
+				<p><strong>How OCS helps:</strong> Highlights specific elements visitors are seeking, directing attention in complex visual fields.</p>
+				<p style="margin-bottom: 0;"><strong>Inquiry dimension supported:</strong> Discovery—locating specific phenomena</p>
+			</div>
+
+			<div class="role-card">
+				<h6>Role 3: Validation</h6>
+				<p><strong>Example question:</strong> "Am I right that this is a plastic bead?"</p>
+				<p><strong>How OCS helps:</strong> Confirms or challenges visitor hypotheses, building confidence or prompting revision.</p>
+				<p style="margin-bottom: 0;"><strong>Inquiry dimension supported:</strong> Correction/clarification—verifying observations</p>
+			</div>
+
+			<div class="role-card">
+				<h6>Role 4: Comparison</h6>
+				<p><strong>Example question:</strong> "How are algae and beads different?"</p>
+				<p><strong>How OCS helps:</strong> Provides distinct classifications that prompt visitors to examine differences and similarities.</p>
+				<p style="margin-bottom: 0;"><strong>Inquiry dimension supported:</strong> Hypothesis testing and theory formation</p>
+			</div>
+
+		<!-- 	<div class="insight-box" style="margin-top: 2rem;">
+				<h6>How OCS Supports Inquiry</h6>
+				<p>Across these roles, OCS supports observational inquiry along four key dimensions:</p>
+
+				<div class="dimension-grid">
+					<div class="dimension-tag">Discovery</div>
+					<div class="dimension-tag">Correction/Clarification</div>
+					<div class="dimension-tag">Hypothesis Testing</div>
+					<div class="dimension-tag">Foundation Building</div>
+				</div>
+
+				<p style="margin-top: 1rem; margin-bottom: 0;"><em>Key insight:</em> These roles are enacted through recurring practices where visitors make sense of visual phenomena <em>in relation to</em> the system's classifications—not simply consuming AI output passively.</p>
+			</div> -->
+		</div>
+
+		<!-- Limitations -->
+		<div class="project-section">
+			<h6>AI Limits</h6>
+
+			<p>I also identified three contexts where OCS may limit or be superfluous to observational inquiry:</p>
+
+			<div class="limitation-box">
+				<h6>1. Erroneous Classifications</h6>
+				<p style="margin-bottom: 0;">When OCS incorrectly identifies objects, it can leave visitors confused or under-confident in their own observations. Visitors may over-trust the AI even when the AI is wrong.</p>
+			</div>
+
+			<div class="limitation-box">
+				<h6>2. Irrelevant Context</h6>
+				<p style="margin-bottom: 0;">The active classification done by OCS may be irrelevant to visitors' current inquiry context—for example, when they're exploring movement patterns but OCS highlights object types.</p>
+			</div>
+
+			<div class="limitation-box">
+				<h6>3. Less Accessible Than Alternatives</h6>
+				<p style="margin-bottom: 0;">In some cases, static media (like exhibit labels) may be more accessible or comprehensible than real-time OCS feedback, particularly for novice visitors.</p>
+			</div>
+		</div>
+
+		<!-- Design Implications -->
+		<div class="project-section">
+			<h6>Design Implications</h6>
+
+			<p><strong>For designing AI-integrated museum exhibits:</strong></p>
+
+			<div class="insight-box">
+				<h6>1. Clarify Uncertainty</h6>
+				<p>Make the erroneous nature of AI classifications transparent. Show confidence scores, explain how the model works, and encourage visitors to question AI outputs.</p>
+			</div>
+
+			<div class="insight-box">
+				<h6>2. Design for User-AI Collaborative Iquiry</h6>
+				<p>Ensures that AI supports visitor-driven exploration rather than dictating the inquiry path. Allow AI to systematically deepen engagement.</p>
+			</div>
+
+			<div class="insight-box">
+				<h6>3. Complement, Don't Replace</h6>
+				<p>Position OCS as one tool among many (labels, diagrams, human facilitators). Acknowledge the strengths of real-time AI feedback while preserving other scaffolding methods.</p>
+			</div>
+
+			<!-- <div class="insight-box">
+				<h6>4. Enable Hypothesis Testing</h6>
+				<p style="margin-bottom: 0;">Design features that let visitors test their theories using AI feedback (e.g., "keeping log" feature that allows pattern identification across multiple observations).</p>
+			</div> -->
+		</div>
+
+		<!-- Impact -->
+		<div class="impact-highlight">
+			<h6>Contributions & Impact</h6>
+
+			<p><strong>For HCI & Human-AI Interaction Research:</strong></p>
+			<ul>
+				<li>Provides one of the first detailed analyses of how OCS scaffolds microscope-based inquiry in museums</li>
+				<li>Extends understanding of AI's role in open-ended scientific inquiry (not just task completion)</li>
+				<li>Demonstrates methodology for analyzing collaborative Human-AI sensemaking</li>
+			</ul>
+
+			<p><strong>For Museum Practice:</strong></p>
+			<ul>
+				<li>Offers concrete design guidelines for integrating AI in scientific exhibits</li>
+				<li>Identifies when AI helps vs. hinders visitor inquiry</li>
+				<li>Provides framework for evaluating AI-integrated exhibits</li>
+			</ul>
+
+			<!-- <p><strong>For Broader AI Design:</strong></p>
+			<ul style="margin-bottom: 0;">
+				<li>Illustrates how AI can be designed as dynamic scaffolding layer</li>
+				<li>Shows importance of user control over AI activation</li>
+				<li>Demonstrates value of transparency about AI limitations</li>
+			</ul> -->
+		</div>
+
+		<!-- Ongoing Work -->
+		<div class="project-section">
+			<h6>Ongoing Work & Next Steps</h6>
+
+			<p><strong>Current Analysis:</strong></p>
+			<ul>
+				<li>Completing detailed coding of all 35 dyad interactions</li>
+				<li>Quantifying frequency of each role across visitor groups</li>
+				<li>Analyzing how roles combine in inquiry sequences</li>
+				<li>Preparing findings for publication</li>
+			</ul>
+
+			<!-- <p><strong>Future Research Directions:</strong></p>
+			<ul>
+				<li>Design iterations based on findings (clarifying errors, improving accessibility)</li>
+				<li>Comparative study: OCS-integrated vs. traditional microscope exhibit</li>
+				<li>Explore how AI scaffolding affects learning outcomes</li>
+				<li>Extend framework to other AI-integrated scientific tools</li>
+			</ul> -->
+		</div>
+
+		<!-- Reflections -->
+			<!-- 	<div class="project-section">
+			<h6>Reflections & Learning</h6>
+
+			<p><strong>What's working well:</strong></p>
+			<ul>
+				<li>Multi-modal data (audio + video + screen + clicks) provides rich understanding of visitor-AI interaction</li>
+				<li>Dyad format encourages natural conversation and think-aloud without researcher prompting</li>
+				<li>Interaction analysis reveals nuanced roles beyond surface-level usability metrics</li>
+				<li>Museum context allows study of naturalistic, self-directed inquiry</li>
+			</ul>
+
+			<p><strong>Challenges:</strong></p>
+			<ul>
+				<li>Synchronizing three data streams requires careful technical setup</li>
+				<li>Balancing visitor autonomy with research needs (when to intervene?)</li>
+				<li>Defining "inquiry" operationally while staying open to unexpected behaviors</li>
+			</ul>
+
+			<p><strong>Key takeaway for industry:</strong></p>
+			<p>AI products should be designed as collaborative partners in user workflows, not autonomous replacements. By studying how users and AI jointly shape outcomes through interaction analysis, we can identify specific roles AI should play and design for meaningful human-AI collaboration. Multi-modal data collection is essential for understanding these complex dynamics.</p>
+		</div> -->
+
+		<!-- Related Work -->
+		<div class="project-section">
+			<h6>Related Publications</h6>
+			<p><em>Paper under review for HCI conference (2026)</em></p>
+			<p>Additional publications forthcoming</p>
+			</div>
+
+	</div>
+
+	<!-- Footer -->
+	<div class="container-fluid" style="padding-top: 8rem;">
+		<div class="footer">
+			<div class=" row text-center">
+				<div class="col-12 social">
+				<a href="https://twitter.com/_shubhangigupta" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.linkedin.com/in/shubhangigupta01/" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href='mailto:"shubhangi@gatech.edu"' target='_blank'><i class='fa fa-envelope'></i></i></a>
+				</div>
+			</div>
+			<div>
+				<p> Thanks for visiting! Let's stay connected. </p>
+				<p>© Shubhangi Gupta</p>
+		     </div>
+		</div>
+	</div>
+
+	<!-- Progress Bar JavaScript -->
+	<script>
+		window.addEventListener('scroll', function() {
+			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			var scrolled = (winScroll / height) * 100;
+			document.getElementById("progressBar").style.width = scrolled + "%";
+		});
+	</script>
+
+</body>
+</html>

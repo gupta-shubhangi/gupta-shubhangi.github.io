@@ -11,7 +11,121 @@
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<link href="style.css" rel="stylesheet">
 	<style>
-@import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* REFINED MAUVE PALETTE */
+:root {
+	--primary: #3D3034;
+	--accent: #A47997;
+	--accent-light: #C4A4B7;
+	--secondary: #6B5D5A;
+	--rose-gold: #B76E79;
+	--champagne: #E8D5C4;
+	--taupe: #C9B8AB;
+	--ivory: #FAF7F2;
+	--background: #FAF7F2;
+	--surface: #FFFFFF;
+	--border: #E8DFD6;
+}
+
+body {
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	color: var(--primary);
+	background-color: var(--surface);
+	line-height: 1.8;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Crimson Text', serif;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+h2 {
+	margin-top: 2rem;
+	margin-bottom: 1.5rem;
+	font-size: 1.5rem;
+}
+
+.navbar {
+	background-color: var(--surface) !important;
+	border-bottom: 2px solid var(--border);
+	padding: 1.25rem 2rem;
+}
+
+.nav-link {
+	color: var(--secondary) !important;
+	font-weight: 500;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+
+.nav-link:hover {
+	color: var(--accent) !important;
+}
+
+#mylogo {
+	width: 6.5rem;
+}
+
+p {
+	color: var(--primary);
+	font-size: 0.95rem;
+	line-height: 1.8;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+a:hover {
+	color: var(--rose-gold);
+}
+
+.one-publication {
+	margin-bottom: 2rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid var(--border);
+}
+
+.one-publication:last-child {
+	border-bottom: none;
+}
+
+.one-publication-heading {
+	font-weight: 600;
+	font-size: 0.95rem;
+	color: var(--accent);
+	margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.footer {
+	border-top: 1px solid var(--border);
+	padding: 3rem 0 2rem;
+	text-align: center;
+	background: var(--surface);
+}
+
+.footer a {
+	color: var(--accent);
+	font-size: 1.3rem;
+	margin: 0 1rem;
+	transition: color 0.2s;
+}
+
+.footer a:hover {
+	color: var(--rose-gold);
+}
+
+.footer p {
+	font-size: 0.95rem;
+	color: var(--secondary);
+	margin: 0.5rem 0;
+}
 </style>
 </head>
 
@@ -134,17 +248,17 @@
 		    	<h2>Workshops</h2>	
 
 		    	<div class="one-publication">
-		    		<p class="one-publication-heading" style="color: #4D7EA8">Unsettling Boundaries Through Data</p>
-		    		<p>S Gupta, S Janicki</p> 
+		    		<p class="one-publication-heading">Unsettling Boundaries Through Data</p>
+		    		<p>S Gupta, S Janicki</p>
 		    		<p>Workshop at the 2021 Connected Learning Summit, (Upcoming), 2021</p>
-		    		
+
 		    	</div>
 
 		    	<div class="one-publication">
-		    		<p class="one-publication-heading" style="color: #4D7EA8">Monitoring Student Learning: Critically Examining the 'Idealized' Case </p>
-		    		<p>S Gupta, A Anupam </p> 
+		    		<p class="one-publication-heading">Monitoring Student Learning: Critically Examining the 'Idealized' Case </p>
+		    		<p>S Gupta, A Anupam </p>
 		    		<p>Workshop at the 2021 Connected Learning Summit, (Upcoming), 2021</p>
-		    		
+
 		    	</div>
 
 		    	<h2>Peer-Reviewed Posters</h2>	
@@ -158,27 +272,33 @@
 
 		    	<h2>Invited talks</h2>	
 
-		    	
+		    	<div class="one-publication">
+		    		<p class="one-publication-heading">Mapping and Explaining Civic Algorithms</p>
+		    		<p>S Gupta</p>
+		    		<p>Visualization in Science and Education, Gordon Research Conference 2025</p>
+
+		    	</div>
+
 
 		    	<div class="one-publication">
-		    		<p class="one-publication-heading" style="color: #4D7EA8">  Situating ‘data’ and ‘design’</p>
-		    		<p>S Gupta</p> 
+		    		<p class="one-publication-heading">Situating 'data' and 'design'</p>
+		    		<p>S Gupta</p>
 		    		<p>Sprinklr Design Team, India, Nov 2020</p>
-		    		
+
 		    	</div>
 
 		    	<div class="one-publication">
-		    		<p class="one-publication-heading" style="color: #4D7EA8">Collective Care: From ‘independence’ to ‘inter-dependence’</p>
-		    		<p>S Gupta </p> 
+		    		<p class="one-publication-heading">Collective Care: From 'independence' to 'inter-dependence'</p>
+		    		<p>S Gupta </p>
 		    		<p>Poster at Tapia 2020</p>
-		    		
+
 		    	</div>
 
 		    	<div class="one-publication">
-		    		<p class="one-publication-heading" style="color: #4D7EA8">Concerns About the Promises of AI Tutors: A Case Study of MATHia.</p>
-		    		<p>S Gupta, A Anupam  </p> 
+		    		<p class="one-publication-heading">Concerns About the Promises of AI Tutors: A Case Study of MATHia.</p>
+		    		<p>S Gupta, A Anupam  </p>
 		    		<p>EASST/4S2020, Held Virtually, 2020.</p>
-		    		
+
 		    	</div>
 
 

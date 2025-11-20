@@ -1,0 +1,58 @@
+
+\documentclass[12pt]{gatechthesis}
+
+% -- The following packages were added by Nirbhay on June 15, 2024:
+\usepackage{cleveref}
+\usepackage{tabularx}
+\usepackage{booktabs}
+% \usepackage{xltabular}
+% \usepackage{longtable}
+\usepackage{incgraph,tikz}
+
+
+% --------------------
+
+% preamble
+
+\title{Good Enough Explanations: How can local publics understand and explain Civic Predictive Systems?}
+\author{Shubhangi Gupta}
+\approvaldate{Jul 10, 2024}
+\school{School of Literature, Media, and Communication}
+\department{Department of Digital Media}
+\degree{Doctor of Philosophy} 
+\bibliography{references}
+
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+% document body
+\begin{document}
+
+\makeTitlePage{August}{2024}
+\input{approvalPage.tex}
+% \makeEpigraph{I'm not super. Any talents I have, I worked for -- it seems a long time since I thought of myself as a hero.}{Oliver Queen}
+% \makeDedication{For my cousin Kara}
+
+\begin{frontmatter}
+    \input{acknowledgments}
+    \makeTOC
+    \makeListOfTables
+    \makeListOfFigures
+    \input{abbrevs}
+    \input{summary}
+\end{frontmatter}
+
+\begin{thesisbody}
+    \input{chapters/chapter1}
+    % \input{chapters/chapter2}
+    \input{chapters/chapter3}
+    \input{chapters/chapter4}
+    \input{chapters/chapter5}
+    \input{chapters/chapter6}
+    \input{chapters/chapter7}
+    \input{chapters/chapter8}
+    \input{chapters/chapter9}
+    \input{chapters/appendix.tex}
+    \makeBibliography
+    % \input{vita}
+\end{thesisbody}
+
+\end{document}

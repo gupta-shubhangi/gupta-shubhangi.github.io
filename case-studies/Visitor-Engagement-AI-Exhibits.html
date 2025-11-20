@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Visitor Engagement with AI Exhibits - Shubhangi Gupta</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="../style.css" rel="stylesheet">
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* REFINED MAUVE PALETTE */
+:root {
+	--primary: #3D3034;
+	--accent: #A47997;
+	--accent-light: #C4A4B7;
+	--secondary: #6B5D5A;
+	--rose-gold: #B76E79;
+	--champagne: #E8D5C4;
+	--taupe: #C9B8AB;
+	--ivory: #FAF7F2;
+	--background: #FAF7F2;
+	--surface: #FFFFFF;
+	--border: #E8DFD6;
+}
+
+body {
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	color: var(--primary);
+	background-color: var(--background);
+	line-height: 1.8;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Crimson Text', serif;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+/* Progress Bar */
+.progress-bar-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: var(--border);
+	z-index: 9999;
+}
+
+.progress-bar {
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	width: 0%;
+	transition: width 0.1s ease;
+}
+
+.navbar {
+	background-color: var(--surface) !important;
+	border-bottom: 2px solid var(--border);
+	padding: 1.25rem 2rem;
+}
+
+.nav-link {
+	color: var(--secondary) !important;
+	font-weight: 500;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+
+.nav-link:hover {
+	color: var(--accent) !important;
+}
+
+#mylogo {
+	width: 6.5rem;
+}
+
+.content-wrapper {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 3rem 1rem;
+}
+
+
+.at-a-glance strong {
+	font-weight: 600;
+	color: var(--accent);
+}
+
+.stats-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 1rem;
+	margin: 2rem 0;
+}
+
+.stat-box {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 1rem 0.75rem;
+	text-align: center;
+}
+
+.stat-number {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: var(--accent);
+	font-family: 'Crimson Text', serif;
+	line-height: 1;
+	margin-bottom: 0.35rem;
+}
+
+.stat-label {
+	font-size: 0.75rem;
+	color: var(--secondary);
+	font-weight: 500;
+}
+
+.project-section h6 {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin: 0.75rem 0;
+	font-family: 'Crimson Text', serif;
+}
+
+.insight-box {
+	background-color: var(--surface);
+	border-radius: 12px;
+	padding: 1.5rem 2rem;
+	margin: 1.5rem 0;
+	border: 2px solid var(--border);
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.insight-box h6 {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--accent);
+	margin-top: 0;
+	margin-bottom: 1rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.insight-box p {
+	color: var(--primary);
+	margin-bottom: 0.75rem;
+	line-height: 1.8;
+}
+
+.insight-box ul {
+	margin-top: 1rem;
+}
+
+.insight-box li {
+	margin-bottom: 0.75rem;
+	color: var(--primary);
+}
+
+.framework-table {
+	width: 100%;
+	margin: 2rem 0;
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.framework-table thead {
+	background-color: var(--accent);
+	color: white;
+}
+
+.framework-table th {
+	padding: 1rem;
+	text-align: left;
+	font-weight: 600;
+}
+
+.framework-table td {
+	padding: 1rem;
+	border-bottom: 1px solid var(--border);
+	background-color: var(--surface);
+}
+
+.framework-table tbody tr:last-child td {
+	border-bottom: none;
+}
+
+.method-card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+	margin: 1rem 0;
+}
+
+.method-card h6 {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: var(--accent);
+	margin-bottom: 0.75rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.behavior-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 0.75rem;
+	margin: 1.5rem 0;
+}
+
+.behavior-tag {
+	background: var(--accent);
+	color: white;
+	padding: 0.75rem 1rem;
+	border-radius: 6px;
+	text-align: center;
+	font-weight: 600;
+	font-size: 0.85rem;
+	font-family: 'DM Sans', sans-serif;
+}
+
+.impact-highlight {
+	background: linear-gradient(135deg, var(--ivory) 0%, var(--champagne) 100%);
+	color: var(--primary);
+	padding: 3rem 2.75rem;
+	border-radius: 12px;
+	margin: 3rem 0;
+	border: 1px solid var(--taupe);
+	box-shadow: 0 4px 16px rgba(164, 121, 151, 0.08);
+	position: relative;
+	overflow: hidden;
+}
+
+.impact-highlight::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	border-radius: 12px 12px 0 0;
+}
+
+.impact-highlight h6 {
+	color: var(--primary) !important;
+	font-weight: 600;
+	font-size: 1.4rem;
+	margin-bottom: 1.75rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.impact-highlight p,
+.impact-highlight ul {
+	color: var(--primary) !important;
+}
+
+.impact-highlight li {
+	color: var(--primary) !important;
+	margin-bottom: 0.75rem;
+}
+
+.impact-highlight strong {
+	font-weight: 600;
+	color: var(--accent) !important;
+}
+
+.impact-highlight a {
+	color: var(--champagne);
+}
+
+p {
+	margin-bottom: 1.5rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+}
+
+ul {
+	margin: 1.25rem 0;
+}
+
+li {
+	margin-bottom: 0.875rem;
+	color: var(--primary);
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s;
+}
+
+a:hover {
+	color: var(--accent-light);
+	text-decoration: underline;
+}
+
+strong {
+	font-weight: 600;
+	color: var(--primary);
+}
+
+em {
+	font-style: italic;
+	font-family: 'Crimson Text', serif;
+}
+
+.footer {
+	background: var(--surface);
+	border-top: 2px solid var(--border);
+	padding: 3.5rem 0 2.5rem 0;
+	text-align: center;
+	margin-top: 5rem;
+}
+
+.footer p {
+	color: var(--secondary);
+	font-size: 0.9rem;
+}
+
+.social a {
+	color: var(--accent);
+	font-size: 1.75rem;
+	margin: 0 1rem;
+	transition: all 0.3s;
+}
+
+.social a:hover {
+	color: var(--rose-gold);
+	transform: scale(1.1);
+}
+</style>
+</head>
+
+<body>
+	<!-- Progress Bar -->
+	<div class="progress-bar-container">
+		<div class="progress-bar" id="progressBar"></div>
+	</div>
+
+		<!-- Navigation -->
+	<nav class="navbar navbar-expand-md navbar-light bg-white sticky-top">
+		<div class="container">
+			<a class="navbar-brand " href="../index.html"> <img id="mylogo" src="../img/logo.png"></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+  			<div class="collapse navbar-collapse" id="navbarResponsive">
+  				<ul class="navbar-nav ml-auto">
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../About.html"> About </a>
+  					</li>
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../RecentUpdatesMore.html"> News </a>
+  					</li>
+
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Research.html"> Projects </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Publications.html"> Publications </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Shubhangi_CV.pdf" target="_blank"> CV </a>
+  					</li>
+  				</ul>
+  			</div>
+
+	</div>
+	</nav>
+
+	<!-- Main Content -->
+	<div class="content-wrapper">
+		<h2>Unpacking Learners' Engagement with AI Exhibits</h2>
+		<h6>Designing for Diverse Learning Pathways in Museum Technology</h6>
+
+		<div class="project-section">
+					<h6>The Challenge</h6>
+					<p>The Exploratorium's 'Adventures in AI' exhibition featured 30+ interactive technological exhibits designed to teach visitors about artificial intelligence concepts, such as word embeddings, neural networks, bias in data, and more. AI literacy in informal learning is a new and emerging field. As such, we have a:
+
+					<ul>
+						<li><strong>Limited understanding</strong> of how museum visitors interact with AI exhibits in social, self-directed contexts</li>
+						<li><strong>Lack of frameworks</strong> to characterize the quality of engagement in relation to learning content</li>
+						<li><strong>Unclear design guidance</strong> on which features support which types of engagement</li>
+						<li><strong>Need for accessible language</strong> to communicate findings across stakeholders (designers, educators, researchers)</li>
+					</ul>
+
+					<p> This led us to ask: </p>
+
+					<div class="research-question"><strong>Research Question:</strong><em>How do visitors engage with interactive technological exhibits in museums, and what design features support diverse engagement types?</em></div>
+
+		
+				</div>
+
+				<!-- My Role -->
+				<div class="project-section">
+					<h6>My Role</h6>
+					<ul>
+						<li>Data cleanup and preliminary analysis</li>
+						<li>Interaction analysis of 20+ hours of visitor audio</li>
+						<li>Collaboration with exhibit designers to identify design features</li>
+						<li>Framework development and synthesis</li>
+					</ul>
+				</div>
+
+				<!-- Research Process -->
+				<div class="project-section">
+					<h6>Research Process</h6>
+
+					<p><strong>Theoretical Framework</strong></p>
+					<p>I grounded this study in the concept of <strong>'genres of participation'</strong> developed by Ito et al., which identifies three constellations of learning behaviors:</p>
+
+					<div class="insight-box">
+						<ul style="margin-bottom: 0;">
+							<li><strong>Hanging Out (HO):</strong> Social, peer-driven engagement focused on being together</li>
+							<li><strong>Messing Around (MA):</strong> Experimental, interest-driven exploration</li>
+							<li><strong>Geeking Out (GO):</strong> Deep, intensive engagement with specialized knowledge</li>
+						</ul>
+					</div>
+
+					<p style="margin-top: 1.5rem;">This framework has proven central to designing informal learning environments like makerspaces, but hasn't been applied to free-choice, self-directed learning with museum exhibits.</p>
+
+					<div class="method-card">
+						<h6>Phase 1: Audio-Recorded Visitor Study (7 weeks)</h6>
+						<p><strong>Participants:</strong> 17 visitor groups (52 individuals total)</p>
+						<p><strong>Method:</strong> Visitors wore microphones as they explored the 'Adventures in AI' exhibition while researchers observed from a distance</p>
+						<p><strong>Visit duration:</strong> 20-80 minutes per group</p>
+						<p><strong>Data collected:</strong> ~20 hours of naturalistic audio of visitor conversations and interactions</p>
+
+						<p style="font-style: italic; color: #707070; font-size: 0.9rem; margin-top: 1rem; margin-bottom: 0;">Note: This data collection was led by the broader team at the Exploratorium.</p>
+
+					</div>
+
+					<div class="method-card">
+						<h6>Phase 2: Ethnographic Field Work (3 days)</h6>
+						<p><strong>Participants:</strong> 28 visitor groups</p>
+						<p><strong>Methods:</strong></p>
+						<ul style="margin-bottom: 0;">
+							<li>Direct observation of visitor interactions with exhibits</li>
+							<li>Unstructured interviews with visitors about their experiences</li>
+							<li>Field notes documenting engagement patterns</li>
+						</ul>
+					</div>
+
+					<div class="method-card">
+						<h6>Phase 3: Interaction Analysis</h6>
+						<p>I analyzed the data using interaction analysis techniques adapted from prior museum research:</p>
+
+						<p><strong>Step 1: Identify Significant Events</strong></p>
+						<ul>
+							<li>Reviewed all audio transcripts and observation notes</li>
+							<li>Identified moments of meaningful engagement with learning content</li>
+							<li>Focused on social conversation, experimentation, and rule-breaking behaviors</li>
+						</ul>
+
+						<p><strong>Step 2: Code Engagement Behaviors</strong></p>
+						<ul>
+							<li>Inductively coded visitor interactions with each other and exhibits</li>
+							<li>Drew on existing museum engagement literature and empirical observations</li>
+							<li>Identified distinct behavior patterns</li>
+						</ul>
+
+						<p><strong>Step 3: Map to Participation Genres</strong></p>
+						<ul>
+							<li>Categorized behaviors as Hanging Out, Messing Around, or Geeking Out</li>
+							<li>Determined categorization based on subject and complexity of behaviors</li>
+						</ul>
+
+						<p><strong>Step 4: Identify Design Features</strong></p>
+						<ul style="margin-bottom: 0;">
+							<li>Collaborated with exhibit designers to map behaviors to specific design features</li>
+							<li>Documented which features supported which participation genres</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Key Findings -->
+				<div class="project-section">
+					<h6>Preliminary Findings (WIP)</h6>
+
+					<div class="insight-box">
+						<h6>Finding 1: Seven Core Engagement Behaviors</h6>
+						<p>Identified distinct ways visitors engage with learning content at technological exhibits:</p>
+
+						<div class="behavior-grid">
+							<div class="behavior-tag">Questioning</div>
+							<div class="behavior-tag">Consuming</div>
+							<div class="behavior-tag">Creating</div>
+							<div class="behavior-tag">Explaining</div>
+							<div class="behavior-tag">Connecting</div>
+							<div class="behavior-tag">Predicting</div>
+							<div class="behavior-tag">Evaluating</div>
+						</div>
+
+						<p style="margin-bottom: 0;">The <em>subject</em> and <em>complexity</em> of these behaviors determine how they map to participation genres (Hanging Out, Messing Around, or Geeking Out).</p>
+					</div>
+
+					<div class="insight-box">
+						<h6>Finding 2: Design Features Shape Engagement</h6>
+						<p>Specific design features support different participation genres. Example from "This or That" exhibit:</p>
+
+						<table class="framework-table">
+							<thead>
+								<tr>
+									<th>Participation Genre</th>
+									<th>Example Behaviors</th>
+									<th>Supporting Design Features</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><strong>Hanging Out</strong></td>
+									<td>Taking pictures, laughing, consuming non-subject-matter information</td>
+									<td>Familiar activity (photos) that reduces barrier to entry</td>
+								</tr>
+								<tr>
+									<td><strong>Messing Around</strong></td>
+									<td>Assessing where pictures fall on spectrum, evaluating subject-matter information</td>
+									<td>Quick repetition, experimentation, immediate feedback allows easy testing</td>
+								</tr>
+								<tr>
+									<td><strong>Geeking Out</strong></td>
+									<td>Testing hypotheses about what the AI detects, predicting, questioning, explaining</td>
+									<td>Keeping log of results allows pattern identification</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<!-- <div class="insight-box">
+						<h6>Finding 3: Framework for Design & Evaluation</h6>
+						<p>The research provides actionable guidance for exhibit teams:</p>
+
+						<p><strong>For Designing:</strong></p>
+						<ul>
+							<li>Consider which participation genre(s) to design for based on learning goals</li>
+							<li>Ideate specific design features to support relevant behaviors</li>
+							<li>Ensure pathways for visitors to transition between genres as interest deepens</li>
+						</ul>
+
+						<p><strong>For Evaluating:</strong></p>
+						<ul style="margin-bottom: 0;">
+							<li>Identify and categorize the effect of exhibits on engagement</li>
+							<li>Use shared language to communicate results across stakeholders</li>
+							<li>Assess whether exhibits support intended learning pathways</li>
+						</ul>
+					</div> -->
+				</div>
+
+				<!-- Impact -->
+				<div class="impact-highlight">
+					<h6>Impact and Outcomes</h6>
+
+					<p><strong>For HCI Community:</strong></p>
+					<ul>
+						<li>Provides framework to design and evaluate interactive AI exhibits in museums</li>
+						<li>Extends understanding of Human-AI interaction in informal learning contexts</li>
+						<li>Paper submitted to HCI conference (under review)</li>
+					</ul>
+
+					<p><strong>For Exploratorium:</strong></p>
+					<ul>
+						<li>Provides evidence-based framework for future AI exhibit development</li>
+						<li>Offers accessible language for discussing visitor engagement across teams</li>
+					</ul>
+
+					<!-- <p><strong>For Museum Field:</strong></p>
+					<ul style="margin-bottom: 0;">
+						<li>Addresses gap in understanding technology-mediated informal learning</li>
+						<li>Applicable to other science museums deploying interactive technology</li>
+						<li>Supports evidence-based design of AI literacy experiences</li>
+					</ul> -->
+				</div>
+
+				<!-- Next Steps -->
+				<div class="project-section">
+					<h6>Ongoing Work and Next Steps</h6>
+
+					<p><strong>Current Analysis:</strong></p>
+					<ul>
+						<li>Completing detailed coding of all 20+ hours of audio data</li>
+						<li>Refining rubric that maps behaviors to participation genres</li>
+						<li>Documenting design features across 6 primary exhibits</li>
+						<li>Preparing findings for publication</li>
+					</ul>
+
+					<!-- <p><strong>Future Research:</strong></p>
+					<ul>
+						<li>Identify key moments of transition between participation genres (deepening engagement)</li>
+						<li>Explore how social dynamics affect engagement patterns</li>
+						<li>Test framework with other technological exhibits beyond AI</li>
+						<li>Develop design guidelines for specific learning outcomes</li>
+					</ul> -->
+				</div>
+
+				<!-- Reflections -->
+			<!-- 	<div class="project-section">
+					<h6>Reflections & Learnings</h6>
+
+					<p><strong>What's working well:</strong></p>
+					<ul>
+						<li>Audio recording captures naturalistic visitor behavior without researcher interference</li>
+						<li>Combining micro-level interaction analysis with macro-level ethnography provides rich insights</li>
+						<li>Collaboration with designers ensures findings are actionable and grounded</li>
+						<li>Framework bridges academic theory and practical museum design needs</li>
+					</ul>
+
+					<p><strong>Challenges:</strong></p>
+					<ul>
+						<li>Audio quality varies in busy museum environment</li>
+						<li>Coding 20+ hours of naturalistic conversation is time-intensive</li>
+						<li>Balancing theoretical rigor with accessible communication for practitioners</li>
+					</ul>
+
+					<p><strong>Key takeaway for industry:</strong></p>
+					<p>Understanding user engagement requires looking beyond surface-level metrics (time-on-task, completion rates). By analyzing the <em>quality</em> of engagement and mapping behaviors to learning outcomes, we can design experiences that support diverse pathways from casual exploration to deep engagement. Mixed methods (observation + audio recording + designer collaboration) provide richer insights than any single method alone.</p>
+				</div> -->
+
+				<!-- Related Work -->
+				<div class="project-section">
+					<h6>Related Publications</h6>
+					<p><em>Paper under review for HCI conference (2026)</em></p>
+					<p>Additional publications forthcoming</p>
+				</div>
+
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<div class="container-fluid" style="padding-top: 8rem;">
+		<div class="footer">
+			<div class=" row text-center">
+				<div class="col-12 social">
+				<a href="https://twitter.com/_shubhangigupta" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.linkedin.com/in/shubhangigupta01/" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href='mailto:"shubhangi@gatech.edu"' target='_blank'><i class='fa fa-envelope'></i></i></a>
+				</div>
+			</div>
+			<div>
+				<p> Thanks for visiting! Let's stay connected. </p>
+				<p>© Shubhangi Gupta</p>
+		     </div>
+		</div>
+	</div>
+
+	<script>
+		// Progress bar functionality
+		window.addEventListener('scroll', function() {
+			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			var scrolled = (winScroll / height) * 100;
+			document.getElementById("progressBar").style.width = scrolled + "%";
+		});
+	</script>
+
+</body>
+</html>

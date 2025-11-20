@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for file in /Users/shubhangigupta/Documents/gupta-shubhangi/Participatory-AI-Toolkit.html /Users/shubhangigupta/Documents/gupta-shubhangi/Visitor-Engagement-AI-Exhibits.html /Users/shubhangigupta/Documents/gupta-shubhangi/AI-Scaffolding-Scientific-Inquiry.html)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Participatory AI Transparency Toolkit - Shubhangi Gupta</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="../style.css" rel="stylesheet">
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* REFINED MAUVE PALETTE */
+:root {
+	--primary: #3D3034;
+	--accent: #A47997;
+	--accent-light: #C4A4B7;
+	--secondary: #6B5D5A;
+	--rose-gold: #B76E79;
+	--champagne: #E8D5C4;
+	--taupe: #C9B8AB;
+	--ivory: #FAF7F2;
+	--background: #FAF7F2;
+	--surface: #FFFFFF;
+	--border: #E8DFD6;
+}
+
+body {
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	color: var(--primary);
+	background-color: var(--background);
+	line-height: 1.8;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Crimson Text', serif;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+/* Progress Bar */
+.progress-bar-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: var(--border);
+	z-index: 9999;
+}
+
+.progress-bar {
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	width: 0%;
+	transition: width 0.1s ease;
+}
+
+/* Navigation */
+.navbar {
+	background-color: var(--surface) !important;
+	border-bottom: 2px solid var(--border);
+	padding: 1.25rem 2rem;
+}
+
+.navbar-nav li {
+	padding-right: 2rem;
+	letter-spacing: 0.2px;
+}
+
+.nav-link {
+	color: var(--secondary) !important;
+	font-weight: 500;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+
+.nav-link:hover {
+	color: var(--accent) !important;
+}
+
+#mylogo {
+	width: 6.5rem;
+}
+
+.case-study-header {
+	background: var(--surface);
+	padding: 3rem 1rem 2rem 1rem;
+	margin-bottom: 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.case-study-header .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.case-study-header h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin-bottom: 0.5rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.case-study-header p {
+	font-size: 1.05rem;
+	color: var(--secondary);
+	font-weight: 400;
+	margin-bottom: 0;
+}
+
+.project-meta {
+	display: flex;
+	gap: 1.25rem;
+	margin-top: 1.25rem;
+	flex-wrap: wrap;
+	font-size: 1.05rem;
+}
+
+.meta-item {
+	color: var(--secondary);
+}
+
+.meta-item strong {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+.content-wrapper {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 3rem 1rem;
+}
+
+.at-a-glance {
+	background: var(--surface);
+	border-left: 4px solid var(--accent);
+	padding: 2.5rem;
+	margin: 3rem 0;
+	border-radius: 0 12px 12px 0;
+	box-shadow: 0 2px 12px rgba(164, 121, 151, 0.08);
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--accent);
+}
+
+.at-a-glance h6 {
+	font-family: 'DM Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	font-size: 0.7rem;
+	font-weight: 700;
+	color: var(--accent);
+	margin-bottom: 1.5rem;
+}
+
+.at-a-glance p {
+	margin-bottom: 1.25rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+
+.at-a-glance p:last-child {
+	margin-bottom: 0;
+}
+
+.at-a-glance strong {
+	font-weight: 600;
+	color: var(--accent);
+}
+
+.stats-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 1rem;
+	margin: 2rem 0;
+}
+
+.stat-box {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 1rem 0.75rem;
+	text-align: center;
+}
+
+.stat-number {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: var(--accent);
+	font-family: 'Crimson Text', serif;
+	line-height: 1;
+	margin-bottom: 0.35rem;
+}
+
+.stat-label {
+	font-size: 0.75rem;
+	color: var(--secondary);
+	font-weight: 500;
+}
+
+.project-section h6 {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin: 0.75rem 0;
+	font-family: 'Crimson Text', serif;
+}
+
+.insight-box {
+	background-color: var(--surface);
+	border-radius: 12px;
+	padding: 1.5rem 2rem;
+	margin: 1.5rem 0;
+	border: 2px solid var(--border);
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.insight-box h6 {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--accent);
+	margin: 1rem 0;
+	font-family: 'Crimson Text', serif;
+}
+
+.insight-box p {
+	color: var(--primary);
+	margin-bottom: 0.75rem;
+	line-height: 1.8;
+}
+
+.insight-box ul {
+	margin-top: 1rem;
+}
+
+.insight-box li {
+	margin-bottom: 0.75rem;
+	color: var(--primary);
+}
+
+.quote-box {
+	background: var(--surface);
+	border-left: 4px solid var(--rose-gold);
+	padding: 1.25rem 1.5rem;
+	margin: 1.5rem 0;
+	font-style: italic;
+	color: var(--primary);
+	border-radius: 0 8px 8px 0;
+	font-size: 0.95rem;
+	line-height: 1.7;
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--rose-gold);
+}
+
+.quote-box .quote-author {
+	margin-top: 0.75rem;
+	font-style: normal;
+	font-size: 0.8rem;
+	color: var(--secondary);
+	font-weight: 600;
+}
+
+.method-card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 1.5rem;
+	margin: 1rem 0;
+}
+
+.method-card h6 {
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: var(--accent);
+	margin-bottom: 0.75rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.workshop-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 1rem;
+	margin: 1.5rem 0;
+}
+
+.workshop-card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 1.25rem;
+}
+
+.workshop-card h6 {
+	font-size: 0.95rem;
+	font-weight: 600;
+	color: var(--accent);
+	margin-bottom: 0.5rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.workshop-card .participants {
+	font-size: 1.4rem;
+	font-weight: 600;
+	color: var(--rose-gold);
+	margin: 0.5rem 0;
+	font-family: 'Crimson Text', serif;
+}
+
+.impact-highlight {
+	background: linear-gradient(135deg, var(--ivory) 0%, var(--champagne) 100%);
+	color: var(--primary);
+	padding: 3rem 2.75rem;
+	border-radius: 12px;
+	margin: 3rem 0;
+	border: 1px solid var(--taupe);
+	box-shadow: 0 4px 16px rgba(164, 121, 151, 0.08);
+	position: relative;
+	overflow: hidden;
+}
+
+.impact-highlight::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	border-radius: 12px 12px 0 0;
+}
+
+.impact-highlight h6 {
+	color: var(--primary) !important;
+	font-weight: 600;
+	font-size: 1.4rem;
+	margin-bottom: 1.75rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.impact-highlight p,
+.impact-highlight ul,
+.impact-highlight ol {
+	color: var(--primary) !important;
+}
+
+.impact-highlight li {
+	color: var(--primary) !important;
+	margin-bottom: 0.75rem;
+}
+
+.impact-highlight strong {
+	color: var(--accent) !important;
+	font-weight: 600;
+}
+
+.impact-highlight a {
+	color: var(--champagne);
+}
+
+p {
+	margin-bottom: 1.5rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+}
+
+ul {
+	margin: 1.25rem 0;
+}
+
+li {
+	margin-bottom: 0.875rem;
+	color: var(--primary);
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s;
+}
+
+a:hover {
+	color: var(--accent-light);
+	text-decoration: underline;
+}
+
+strong {
+	font-weight: 600;
+	color: var(--primary);
+}
+
+em {
+	font-style: italic;
+	font-family: 'Crimson Text', serif;
+}
+
+/* Footer */
+.footer {
+	background: var(--surface);
+	border-top: 2px solid var(--border);
+	padding: 3.5rem 0 2.5rem 0;
+	text-align: center;
+	margin-top: 5rem;
+}
+
+.footer p {
+	color: var(--secondary);
+	font-size: 0.9rem;
+}
+
+.social a {
+	color: var(--accent);
+	font-size: 1.75rem;
+	margin: 0 1rem;
+	transition: all 0.3s;
+}
+
+.social a:hover {
+	color: var(--rose-gold);
+	transform: scale(1.1);
+}
+
+.imgrow {
+	display: flex;
+	gap: 1rem;
+}
+
+.imgcolumn {
+	flex: 1;
+}
+</style>
+</head>
+
+<body>
+	<!-- Progress Bar -->
+	<div class="progress-bar-container">
+		<div class="progress-bar" id="progressBar"></div>
+	</div>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-md navbar-light bg-white sticky-top">
+		<div class="container">
+			<a class="navbar-brand " href="../index.html"> <img id="mylogo" src="../img/logo.png"></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+  			<div class="collapse navbar-collapse" id="navbarResponsive">
+  				<ul class="navbar-nav ml-auto">
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../About.html"> About </a>
+  					</li>
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../RecentUpdatesMore.html"> News </a>
+  					</li>
+
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Research.html"> Projects </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Publications.html"> Publications </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Shubhangi_CV.pdf" target="_blank"> CV </a>
+  					</li>
+  				</ul>
+  			</div>
+
+	</div>
+	</nav>
+
+	<!-- Case Study Header -->
+	<div class="case-study-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2>The Unknowable Algorithm</h2>
+					<p>Designing Partial Explanations of Civic AI with Local Publics</p>
+
+					<div class="project-meta">
+						<div class="meta-item"><strong>Timeline:</strong> Aug 2022 - Apr 2024</div>
+						<div class="meta-item"><strong>Organization:</strong> Georgia Institute of Technology</div>
+						<div class="meta-item"><strong>My Role:</strong> Lead Researcher</div>
+						<div class="meta-item"><strong>Type:</strong> Participatory Research and Design</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main Content -->
+	<div class="content-wrapper">
+
+		<!-- At a Glance -->
+		<div class="at-a-glance" id="section-glance">
+			<h6>At a Glance</h6>
+			<p><strong>Challenge:</strong> Civic AI systems are rapidly becoming more complex and opaque. This presents an urgent challenge for the XAI community to develop explanations for AI systems and their supporudning socio-technical assemblages.  </p>
+			<p><strong>Outcome:</strong> Showcased the role of diverse publics in generating explanations of civic AI systems and their effects. Designed a generative toolkit that helps conceptualize recommendation for public generated AI explanations. </p>
+		</div>
+
+		<!-- Stats -->
+		<div class="stats-row">
+			<div class="stat-box">
+				<div class="stat-number">8</div>
+				<div class="stat-label">Workshops Conducted</div>
+			</div>
+			<div class="stat-box">
+				<div class="stat-number">45+</div>
+				<div class="stat-label">Total Participants</div>
+			</div>
+			<div class="stat-box">
+				<div class="stat-number">5</div>
+				<div class="stat-label">Stakeholder Groups</div>
+			</div>
+			<!-- <div class="stat-box">
+				<div class="stat-number">3+</div>
+				<div class="stat-label">Nonprofits Adopted Toolkit</div>
+			</div> -->
+		</div>
+
+		<!-- Research Challenge -->
+		<div class="project-section" id="section-challenge">
+			<h6>The Challenge</h6>
+			<p>Existing pursuits towards transparency are overwhelmingly technical and disregard how algorithms interact with broader networks of materials, relations, cultures, institutions, and histories to affect societies in unjust and harmful ways. A meaningful examination of an AI system requires us to engage with the socio-technical assemblages in which it is placed. </p>
+
+			<p>There is a need to (1) overcome the epistemic barriers presented by opaque ‘black-boxed’ algorithms, and (2) situate algorithmic systems in broader networks of spaces and environments that affect and are affected by the algorithm</p>
+
+<!-- 			<p>Traditional AI transparency approaches (model cards, technical documentation) were designed for experts, not everyday citizens. Communities needed:</p>
+
+			<ul>
+				<li><strong>Accessible explanations</strong> that don't require technical expertise</li>
+				<li><strong>Situated understanding</strong> connected to their lived experiences and local knowledge</li>
+				<li><strong>Collective sensemaking</strong> tools that enable group investigation</li>
+				<li><strong>Action-oriented insights</strong> that support advocacy and democratic oversight</li>
+			</ul> -->
+
+			<p style="background: var(--surface); padding: 1.25rem 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent); margin-top: 2rem; border: 1px solid var(--border); border-left: 4px solid var(--accent);"><strong>Research Question:</strong><em>How can we move towards a better understanding of the expansive and complex socio-technical assemblages underlying AI systems?</em></p>
+
+			
+		</div>
+
+		<!-- My Role -->
+		<div class="project-section" id="section-role">
+			<h6>My Role</h6>
+			<p>As lead researcher, I owned the entire research process:</p>
+			<ul>
+				<li>Research design and participatory methodology development</li>
+				<li>Stakeholder recruitment across 5 diverse community groups</li>
+				<li>Workshop facilitation (led all 8 workshops)</li>
+				<li>Workshop documentation (supported by 2 fantastic colleagues for note-taking and picture-taking)</li>
+				<li>Mediation toolkit design (interactive mapping setup and take-away materials)</li>
+				<li>Qualitative analysis (situational analysis, thematic analysis)</li>
+				<li>Writing and presentation</li>
+			</ul>
+		</div>
+
+		<!-- Research Process -->
+		<div class="project-section" id="section-process">
+			<h6>Research Process</h6>
+
+			<p><strong>Research Through Design Approach</strong></p>
+			<p>I employed a 'research through design' methodology, using the process of designing and facilitating participatory workshops to investigate how we can generate explanations of broad socio-technical AI systems. </p>
+
+			<div class="method-card">
+				<h6>Phase 1: Pilot Studies (Apr 2023)</h6>
+				<p>Conducted 2 pilot workshops at Georgia Tech Demo Day and GVU Research Showcase with ~20 participants to test initial concepts.</p>
+				<p style="margin-bottom: 0;"><strong>Key learning:</strong> Participatory mapping and "speculative personation" (asking participants to make predictions as an AI would) effectively prompted critical questions and embodied discomfort with algorithmic decision-making.</p>
+			</div>
+
+			<div class="method-card">
+				<h6>Phase 2: Workshop Design & Preparation</h6>
+				<ul style="margin-bottom: 0;">
+					<li>Developed workshop protocol based on "good enough explanations" framework</li>
+					<li>Created interactive mapping setup using MapSpot projection table</li>
+					<li>Designed pre-workshop survey to understand participants' familiarity and goals</li>
+					<li>Created take-away toolkit documenting key questions about AI systems</li>
+				</ul>
+			</div>
+
+			<div class="method-card">
+				<h6>Phase 3: Participatory Workshops (Jun 2023 - Jan 2024)</h6>
+				<p style="margin-bottom: 1.5rem;">I conducted 5 workshops with diverse stakeholder groups in Atlanta, GA, bringing together different perspectives on predictive policing and algorithmic systems:</p>
+
+			<div class="workshop-grid">
+				<div class="workshop-card">
+					<h6>Police Reform Group</h6>
+					<div class="participants">12</div>
+					<p style="font-size: 0.85rem; margin-bottom: 0;">Organization supporting people experiencing poverty, substance use, mental health concerns</p>
+				</div>
+
+				<div class="workshop-card">
+					<h6>City Planners</h6>
+					<div class="participants">7</div>
+					<p style="font-size: 0.85rem; margin-bottom: 0;">Regional civic planning agency using data-driven methods</p>
+				</div>
+
+				<div class="workshop-card">
+					<h6>Community Leaders</h6>
+					<div class="participants">7</div>
+					<p style="font-size: 0.85rem; margin-bottom: 0;">Open call: neighborhood leaders, violence prevention workers, civic researchers</p>
+				</div>
+
+				<div class="workshop-card">
+					<h6>Development Organization</h6>
+					<div class="participants">11</div>
+					<p style="font-size: 0.85rem; margin-bottom: 0;">Organization funding local community-centered projects across Georgia</p>
+				</div>
+
+				<div class="workshop-card">
+					<h6>Educators</h6>
+					<div class="participants">8</div>
+					<p style="font-size: 0.85rem; margin-bottom: 0;">Teachers from nonprofit focused on educator collaboration</p>
+				</div>
+			</div>
+
+			<p><strong>Workshop Structure (90 minutes)</strong></p>
+			<ol>
+				<li><strong>Speculative personation (30 min):</strong> Participants identified neighborhoods on a projected map where they believed a predictive policing algorithm might flag as "crime hotspots"</li>
+				<li><strong>Reflection & questioning (45 min):</strong> Guided discussion exploring their reasoning, the AI system's potential logic, and social/political implications</li>
+				<li><strong>Toolkit walkthrough (15 min):</strong> Introduced take-away materials for continued investigation</li>
+			</ol>
+
+			<p>Workshops were audio/video recorded. I also gathered pre-workshop surveys and post-workshop feedback.</p>
+
+			<div style="margin: 2rem 0;">
+				<div class="imgrow">
+					<div class="imgcolumn">
+						<img src="../Projects/Crime Mapping/W1.jpg" alt="Workshop 1" style="width:100%; border-radius: 8px;">
+					</div>
+					<div class="imgcolumn">
+						<img src="../Projects/Crime Mapping/W4.jpeg" alt="Workshop 4" style="width:100%; border-radius: 8px;">
+					</div>
+				</div>
+				<p style="text-align: center; font-style: italic; font-size: 0.85rem; margin-top: 1rem; color: var(--secondary);">Participants engaging with the interactive mapping toolkit during workshops</p>
+			</div>
+		</div>
+
+		<div class="method-card">
+			<h6>Phase 4: Analysis</h6>
+				<p>I analyzed workshop data using multiple qualitative methods:</p>
+				<ul style="margin-bottom: 0;">
+					<li><strong>Situational analysis:</strong> Mapped the socio-technical assemblages participants identified</li>
+					<li><strong>Thematic analysis:</strong> Coded transcripts for patterns in how participants related to AI</li>
+					<li><strong>Interaction analysis:</strong> Examined how mapping mediated collective sensemaking</li>
+					<li><strong>Design analysis:</strong> Identified which toolkit features supported which types of inquiry</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Key Insights -->
+		<div class="project-section" id="section-insights">
+			<h6>Key Research Findings</h6>
+
+			<div class="insight-box">
+				<h6>Finding 1: Locals Possess "Partial Explanations" of AI Systems</h6>
+				<p>While my initial goal was to identify key dimensions and related questions where explainability is desired, I found that local publics are not just in need of AI explanations, but they are also well positioned to partially explain how algorithms interact with society to affect local contexts. </p>
+				<!-- <ul>
+					<li>Environments where AI tools are deployed and their cultural/political contexts</li>
+					<li>Lived experiences of problems AI attempts to address</li>
+					<li>Historical patterns that shape what gets measured and predicted</li>
+					<li>Power structures determining who benefits from predictions</li>
+				</ul> -->
+				<p style="margin-bottom: 0;"><em>Design implication: Design tools and features that collect, maintain, and organize public generated partial explanations of AI systems.</em> </p>
+			</div>
+
+
+			<div class="insight-box">
+				<h6>Finding 2: Users Relate to AI Through Four Domains</h6>
+				<p>When attempting to understand and explain AI systems, participants drew on their relationships with:</p>
+				<ul>
+					<li><strong>Prediction domain:</strong> The service area (policing, education, housing)</li>
+					<li><strong>Prediction subject:</strong> The people/places predicted (their own neighborhoods)</li>
+					<li><strong>Predictive backdrop:</strong> Local and global environment (city politics, history)</li>
+					<li><strong>Predictive tool:</strong> The AI system itself</li>
+				</ul>
+				<p style="margin-bottom: 0;"><em>Design implication: Consider how tools can help locals identify their expertise within these domains, thereby prompting them to generate grounded AI explanations.</em>
+			</div>
+
+			
+
+			<div class="insight-box">
+				<h6>Finding 3: Participatory Mapping Can Generate Partial + Local AI Explanations</h6>
+				<p>The mapping interface, and supporting workshop protocol, successfully provided:</p>
+				<ul style="margin-bottom: 0;">
+					<li><strong>Site:</strong> Invited workshops were curated to reach a diverse set of stakeholders (and their expkanations).</li>
+					<li><strong>Media</strong> Mapping helped grounded discussions in familiar places of which public consider themselves experts.</li>
+					<li><strong>Interactions:</strong> Speculative Personation helped embody the AI tool and consider its varied features.</li>
+				</ul>
+			</div>
+
+			<!-- <div class="quote-box">
+				"The interactive piece helps ground this in their own experience to think about ok.. where do I live.. where my actual life took place in this area. So I can actually think about streetlights and bus stops and things like that."
+				<div class="quote-author">— Workshop participant</div>
+			</div>
+
+			<div class="quote-box">
+				"Forcing me to draw areas that I think would be flagged was really fascinating.. I did not want to do that cuz I was like.. there was some uncomfortableness in doing that."
+				<div class="quote-author">— Workshop participant on speculative personation</div>
+			</div>
+		</div> -->
+
+		<!-- The Toolkit -->
+	<!-- 	<div class="project-section" id="section-toolkit">
+			<h6>The Toolkit Deliverable</h6>
+
+			<p>Based on workshop insights, I designed a take-away toolkit that guides communities through questioning AI systems:</p>
+
+			<div style="text-align: center; margin: 2rem 0;">
+				<img src="../Projects/Crime Mapping/pg1.jpg" alt="Toolkit page" style="width: 70%; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+				<p style="font-style: italic; font-size: 0.85rem; margin-top: 1rem; color: var(--secondary);">Page from the toolkit guiding users through key questions about AI systems</p>
+			</div>
+
+			<p>The toolkit prompts users to consider:</p>
+			<ul>
+				<li><strong>Prediction goals:</strong> What is the system trying to predict and why?</li>
+				<li><strong>Data sources:</strong> What data is used? Who collected it? What's missing?</li>
+				<li><strong>Spatial aggregation:</strong> How is space divided and measured?</li>
+				<li><strong>Historical context:</strong> How does this relate to past discriminatory practices?</li>
+				<li><strong>Prediction effects:</strong> Who benefits? Who is harmed? What actions can we take?</li>
+			</ul>
+		</div> -->
+
+		<!-- Impact -->
+		<div class="impact-highlight" id="section-impact">
+			<h6>Impact & Outcomes</h6>
+
+			<!-- <p><strong>Real-World Adoption:</strong></p>
+			<ul>
+				<li>3+ nonprofit organizations adapted the toolkit for long-term community engagement strategies</li>
+				<li>Partners published blog posts and LinkedIn articles documenting workshop impact</li>
+				<li>Workshop discussions informed participants' advocacy and policy work</li>
+				<li>Educators incorporated methods into curriculum</li>
+			</ul>
+
+			<p><strong>Partner Testimonials:</strong></p>
+			<p style="font-style: italic;">"As we look to the future of these technologies, we have the potential to enhance community well-being and resource distribution, but only if we fully understand their potential and limitations."</p>
+			<p style="font-size: 0.85rem; margin-bottom: 1.5rem;">— Community Development Organization (Workshop 4)</p>
+
+			<p><strong>Measurable Outcomes:</strong></p> -->
+			<ul style="margin-bottom: 0;">
+				<li>45+ stakeholders gained tools to critically engage with and explain parts of civic AI</li>
+				<li>Toolkit distributed to 50+ community members and organizations</li>
+				<li>3 partner organizations documented adoption via blog posts (<a href="https://www.thecommonspk12.org/happenings/blog-post-title-four-p4gyw-x43ly-ney98-fyraw-tcx4r" target="_blank">example 1</a>, <a href="https://www.linkedin.com/posts/debralam_ai-predictive-technologies-activity-7156292156268171265-nXtZ" target="_blank">example 2</a>)</li>
+			</ul>
+		</div>
+
+		<!-- Reflections -->
+		<div class="project-section" id="section-reflections">
+			<h6>Reflections & Learnings</h6>
+
+			<p><strong>What worked well:</strong></p>
+			<ul>
+				<li>As this was exploratory and generative research, recruiting diverse stakeholders revealed common patterns while honoring different perspectives</li>
+				<li>Speculative personation created embodied understanding and moral reflection</li>
+				<li>Interactive mapping successfully bridged technical and experiential knowledge</li>
+				<li>Flexible protocol allowed workshops to follow participants' interests</li>
+				<li>Take-away toolkit extended impact beyond single sessions</li>
+			</ul>
+
+			<p><strong>Future Work:</strong></p>
+			<ul>
+				<li>Conduct longer-term engagement (multiple sessions) to track how understanding deepens</li>
+				<li>Include more direct collaboration with city officials using these systems</li>
+				<li>Expand to other types of civic AI beyond predictive policing</li>
+				<li>Build digital version of toolkit for broader distribution</li>
+			</ul>
+		</div>
+
+		<!-- Related Publications -->
+		<div class="project-section">
+			<h6>Related Publications</h6>
+
+			<p>1. <a href="../Publications/thesis.pdf" target="_blank">Good Enough Explanations: How Can Local Publics Understand and Explain Civic Predictive Systems?</a> Shubhangi Gupta. PhD Dissertation. Georgia Institute of Technology.</p>
+
+			<p>2. <a href="../Publications/Making Smart Cities Explainable.pdf" target="_blank">Making Smart Cities Explainable: What XAI Can Learn from the "Ghost Map"</a>. Shubhangi Gupta, Yanni Loukissas. Late Breaking Works paper at CHI 2023.</p>
+
+			<p>3. <a href="../Publications/DIS_2023_mapping_the_smart_city.pdf" target="_blank">Mapping the Smart City: Participatory approaches to XAI</a>. Shubhangi Gupta. Doctoral Consortium at Designing Interactive Systems (DIS) 2023.</p>
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<div class="container-fluid" style="padding-top: 8rem;">
+		<div class="footer">
+			<div class=" row text-center">
+				<div class="col-12 social">
+				<a href="https://twitter.com/_shubhangigupta" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.linkedin.com/in/shubhangigupta01/" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href='mailto:"shubhangi@gatech.edu"' target='_blank'><i class='fa fa-envelope'></i></i></a>
+				</div>
+			</div>
+			<div>
+				<p> Thanks for visiting! Let's stay connected. </p>
+				<p>© Shubhangi Gupta</p>
+		     </div>
+		</div>
+	</div>
+
+	<script>
+		// Progress bar functionality
+		window.addEventListener('scroll', function() {
+			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			var scrolled = (winScroll / height) * 100;
+			document.getElementById("progressBar").style.width = scrolled + "%";
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ads Trust and Safety - Shubhangi Gupta</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="../style.css" rel="stylesheet">
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* REFINED MAUVE PALETTE */
+:root {
+	--primary: #3D3034;
+	--accent: #A47997;
+	--accent-light: #C4A4B7;
+	--secondary: #6B5D5A;
+	--rose-gold: #B76E79;
+	--champagne: #E8D5C4;
+	--taupe: #C9B8AB;
+	--ivory: #FAF7F2;
+	--background: #FAF7F2;
+	--surface: #FFFFFF;
+	--border: #E8DFD6;
+}
+
+body {
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	color: var(--primary);
+	background-color: var(--background);
+	line-height: 1.8;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Crimson Text', serif;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+/* Progress Bar */
+.progress-bar-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: var(--border);
+	z-index: 9999;
+}
+
+.progress-bar {
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	width: 0%;
+	transition: width 0.1s ease;
+}
+
+/* Navigation */
+.navbar {
+	background-color: var(--surface) !important;
+	border-bottom: 2px solid var(--border);
+	padding: 1.25rem 2rem;
+}
+
+.navbar-nav li {
+	padding-right: 2rem;
+	letter-spacing: 0.2px;
+}
+
+.nav-link {
+	color: var(--secondary) !important;
+	font-weight: 500;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+
+.nav-link:hover {
+	color: var(--accent) !important;
+}
+
+#mylogo {
+	width: 6.5rem;
+}
+
+.case-study-header {
+	background: var(--surface);
+	padding: 3rem 1rem 2rem 1rem;
+	margin-bottom: 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.case-study-header .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.case-study-header h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin-bottom: 0.5rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.case-study-header p {
+	font-size: 1.05rem;
+	color: var(--secondary);
+	font-weight: 400;
+	margin-bottom: 0;
+}
+
+.project-meta {
+	display: flex;
+	gap: 1.25rem;
+	margin-top: 1.25rem;
+	flex-wrap: wrap;
+	font-size: 1.05rem;
+}
+
+.meta-item {
+	color: var(--secondary);
+}
+
+.meta-item strong {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+.content-wrapper {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 3rem 1rem;
+}
+
+.at-a-glance {
+	background: var(--surface);
+	border-left: 4px solid var(--accent);
+	padding: 2.5rem;
+	margin: 3rem 0;
+	border-radius: 0 12px 12px 0;
+	box-shadow: 0 2px 12px rgba(164, 121, 151, 0.08);
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--accent);
+}
+
+.at-a-glance h6 {
+	font-family: 'DM Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	font-size: 0.7rem;
+	font-weight: 700;
+	color: var(--accent);
+	margin-bottom: 1.5rem;
+}
+
+.at-a-glance p {
+	margin-bottom: 1.25rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+
+.at-a-glance p:last-child {
+	margin-bottom: 0;
+}
+
+.at-a-glance strong {
+	font-weight: 600;
+	color: var(--accent);
+}
+
+.stats-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 1rem;
+	margin: 2rem 0;
+}
+
+.stat-box {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 1rem 0.75rem;
+	text-align: center;
+}
+
+.stat-number {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: var(--accent);
+	font-family: 'Crimson Text', serif;
+	line-height: 1;
+	margin-bottom: 0.35rem;
+}
+
+.stat-label {
+	font-size: 0.75rem;
+	color: var(--secondary);
+	font-weight: 500;
+}
+
+.project-section h6 {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin: 3.5rem 0 1.5rem 0;
+	font-family: 'Crimson Text', serif;
+}
+
+.insight-box {
+	background-color: var(--surface);
+	border-radius: 12px;
+	padding: 1.5rem 2rem;
+	margin: 1.5rem 0;
+	border: 2px solid var(--border);
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.insight-box h6 {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--accent);
+	margin: 0 0 1rem 0;
+	margin-top: 0;
+	font-family: 'Crimson Text', serif;
+}
+
+.insight-box p {
+	color: var(--primary);
+	margin-bottom: 0.75rem;
+	line-height: 1.8;
+}
+
+.insight-box ul {
+	margin-top: 1rem;
+}
+
+.insight-box li {
+	margin-bottom: 0.75rem;
+	color: var(--primary);
+}
+
+.quote-box {
+	background: var(--surface);
+	border-left: 4px solid var(--rose-gold);
+	padding: 1.25rem 1.5rem;
+	margin: 1.5rem 0;
+	font-style: italic;
+	color: var(--primary);
+	border-radius: 0 8px 8px 0;
+	font-size: 0.95rem;
+	line-height: 1.7;
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--rose-gold);
+}
+
+.impact-highlight {
+	background: linear-gradient(135deg, var(--ivory) 0%, var(--champagne) 100%);
+	padding: 3rem 2.75rem;
+	border-radius: 12px;
+	margin: 3rem 0;
+	box-shadow: 0 4px 16px rgba(164, 121, 151, 0.08);
+	position: relative;
+	overflow: hidden;
+	border: 1px solid var(--taupe);
+}
+
+.impact-highlight::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+}
+
+.impact-highlight h6 {
+	color: var(--primary) !important;
+	font-weight: 600;
+	font-size: 1.4rem;
+	margin-bottom: 1.75rem;
+	margin-top: 0;
+	font-family: 'Crimson Text', serif;
+}
+
+.impact-highlight p,
+.impact-highlight ul {
+	color: var(--primary) !important;
+}
+
+.impact-highlight li {
+	color: var(--primary) !important;
+}
+
+.impact-highlight strong {
+	font-weight: 700;
+	color: var(--accent) !important;
+}
+
+.impact-highlight a {
+	color: var(--accent);
+}
+
+p {
+	margin-bottom: 1.5rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+}
+
+ul {
+	margin: 1.25rem 0;
+}
+
+li {
+	margin-bottom: 0.875rem;
+	color: var(--primary);
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s;
+}
+
+a:hover {
+	color: var(--accent-light);
+	text-decoration: underline;
+}
+
+strong {
+	font-weight: 600;
+	color: var(--primary);
+}
+
+em {
+	font-style: italic;
+	font-family: 'Crimson Text', serif;
+}
+
+/* Footer */
+.footer {
+	background: var(--surface);
+	border-top: 2px solid var(--border);
+	padding: 3.5rem 0 2.5rem 0;
+	text-align: center;
+	margin-top: 5rem;
+}
+
+.footer p {
+	color: var(--secondary);
+	font-size: 0.9rem;
+}
+
+.social a {
+	color: var(--accent);
+	font-size: 1.75rem;
+	margin: 0 1rem;
+	transition: all 0.3s;
+}
+
+.social a:hover {
+	color: var(--rose-gold);
+	transform: scale(1.1);
+}
+
+.research-question {
+	background-color: var(--ivory);
+	padding: 2rem 2.25rem;
+	border-radius: 8px;
+	border-left: 4px solid var(--accent);
+	margin-top: 2rem;
+	margin-bottom: 2.5rem;
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--accent);
+	box-shadow: 0 2px 8px rgba(164, 121, 151, 0.06);
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+
+.research-question strong {
+	color: var(--accent);
+	font-weight: 600;
+	display: block;
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 0.75rem;
+}
+
+.research-question em {
+	color: var(--primary);
+	font-style: italic;
+	font-size: 1.05rem;
+}
+</style>
+</head>
+
+<body>
+	<!-- Progress Bar -->
+	<div class="progress-bar-container">
+		<div class="progress-bar" id="progressBar"></div>
+	</div>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-md navbar-light bg-white sticky-top">
+		<div class="container">
+			<a class="navbar-brand " href="../index.html"> <img id="mylogo" src="../img/logo.png"></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+  			<div class="collapse navbar-collapse" id="navbarResponsive">
+  				<ul class="navbar-nav ml-auto">
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../About.html"> About </a>
+  					</li>
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../RecentUpdatesMore.html"> News </a>
+  					</li>
+
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Research.html"> Projects </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Publications.html"> Publications </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Shubhangi_CV.pdf" target="_blank"> CV </a>
+  					</li>
+  				</ul>
+  			</div>
+
+	</div>
+	</nav>
+
+	<!-- Case Study Header -->
+	<div class="case-study-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2>Ads Trust and Safety @ Google</h2>
+					<p>Designing Meaningful AI Transparency and Data Control Features for User Safety</p>
+
+					<div class="project-meta">
+						<div class="meta-item"><strong>Timeline:</strong> Aug 2021 - Nov 2021</div>
+						<div class="meta-item"><strong>Organization:</strong> Google</div>
+						<div class="meta-item"><strong>My Role:</strong> UX Researcher</div>
+						<div class="meta-item"><strong>Type:</strong> Evaluative Research</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main Content -->
+	<div class="content-wrapper">
+
+		<!-- At a Glance -->
+		<div class="at-a-glance">
+			<h6>At a Glance</h6>
+			<p><strong>Challenge:</strong> How can we help users develop trust and feel safer when interacting with Ads on Google platforms? What is the role of data controls and ads AI transparency features in making users feel safe?</p>
+			<p><strong>Approach:</strong> Led three qualitative studies including interviews, card sorting, and diary studies with 55+ participants across 3 countries to understand user safety needs and preferences.</p>
+			<p><strong>Outcome:</strong> Research directly informed the first design of the Google Ad Center, which is now a public tool used by millions of users.</p>
+		</div>
+
+		<!-- Stats -->
+		<div class="stats-row">
+			<div class="stat-box">
+				<div class="stat-number">3</div>
+				<div class="stat-label">Research Studies</div>
+			</div>
+			<div class="stat-box">
+				<div class="stat-number">55+</div>
+				<div class="stat-label">Participants</div>
+			</div>
+			<div class="stat-box">
+				<div class="stat-number">3</div>
+				<div class="stat-label">Countries</div>
+			</div>
+		</div>
+
+		<!-- Research Challenge -->
+		<div class="project-section">
+			<h6>Research Questions</h6>
+
+			<p>In this work, I led three qualitative studies to support the design of meaningful Ads AI transparency and data control features. I worked towards promoting user safety and trust in the open internet by asking and answering the following research questions:</p>
+
+			<div class="research-question">
+				<strong>Research Question 1</strong>
+				<em>How should we design Ad Explanations to help users develop trust and feel safer when interacting with Ads on Google platforms?</em>
+			</div>
+
+			<div class="research-question">
+				<strong>Research Question 2</strong>
+				<em>Broadly, what is the role of data controls and AI transparency features in making users feel safe in relation to ads online?</em>
+			</div>
+		</div>
+
+		<!-- Methods -->
+		<div class="project-section">
+			<h6>Methods</h6>
+
+			<div class="insight-box">
+				<h6>Research Question 1: Interview Studies & Card Sorting</h6>
+				<p>To answer the first research question, I conducted two interview studies and used card sorting techniques with 30+ users spanning 3 countries. I single-handedly defined recruitment criteria, developed study plan, conducted interview studies, performed data analysis and communicated findings through reports and presentations.</p>
+			</div>
+
+			<div class="insight-box">
+				<h6>Research Question 2: Diary Study</h6>
+				<p>To answer the second research question, I collaborated with dScout to conduct a week-long diary study with 25+ participants. Users were prompted to think about their interactions with ads multiple times a day and fill out a short survey after those interactions.</p>
+			</div>
+		</div>
+
+		<!-- Findings & Impact -->
+		<div class="impact-highlight">
+			<h6>Findings and Impact</h6>
+
+			<p>I am unable to share my research findings due to confidentiality agreements. My work ultimately supported the first design of the <a href="https://support.google.com/My-Ad-Center-Help/?hl=en#topic=11616697" target="_blank">Google Ad Center</a>, which is now a public tool.</p>
+
+			<p><strong>Key Contributions:</strong></p>
+			<ul>
+				<li>Recommended AI explanations design deatures to promote user safety and trust</li>
+				<li>Influenced the launch of a public-facing tool used by millions</li>
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<div class="container-fluid" style="padding-top: 8rem;">
+		<div class="footer">
+			<div class=" row text-center">
+				<div class="col-12 social">
+				<a href="https://twitter.com/_shubhangigupta" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.linkedin.com/in/shubhangigupta01/" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href='mailto:"shubhangi@gatech.edu"' target='_blank'><i class='fa fa-envelope'></i></i></a>
+				</div>
+			</div>
+			<div>
+				<p> Thanks for visiting! Let's stay connected. </p>
+				<p>© Shubhangi Gupta</p>
+		     </div>
+		</div>
+	</div>
+
+	<script>
+		// Progress bar functionality
+		window.addEventListener('scroll', function() {
+			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			var scrolled = (winScroll / height) * 100;
+			document.getElementById("progressBar").style.width = scrolled + "%";
+		});
+	</script>
+
+</body>
+</html>

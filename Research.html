@@ -1,9 +1,9 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Shubhangi Gupta Webpage</title>
+	<title>Research - Shubhangi Gupta</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -11,12 +11,161 @@
 	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 	<link href="style.css" rel="stylesheet">
 	<style>
-@import url('https://fonts.googleapis.com/css2?family=Arbutus+Slab&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* REFINED MAUVE PALETTE */
+:root {
+	--primary: #3D3034;
+	--accent: #A47997;
+	--accent-light: #C4A4B7;
+	--secondary: #6B5D5A;
+	--rose-gold: #B76E79;
+	--champagne: #E8D5C4;
+	--taupe: #C9B8AB;
+	--ivory: #FAF7F2;
+	--background: #FAF7F2;
+	--surface: #FFFFFF;
+	--border: #E8DFD6;
+}
+
+body {
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	color: var(--primary);
+	background-color: var(--surface);
+	line-height: 1.8;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Crimson Text', serif;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+.navbar {
+	background-color: var(--surface) !important;
+	border-bottom: 2px solid var(--border);
+	padding: 1.25rem 2rem;
+}
+
+.nav-link {
+	color: var(--secondary) !important;
+	font-weight: 500;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+
+.nav-link:hover {
+	color: var(--accent) !important;
+}
+
+#mylogo {
+	width: 6.5rem;
+}
+
+.card {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	height: 100%;
+	border: 1px solid var(--border);
+	background: var(--surface);
+	margin: 8px;
+	padding: 0;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+	height: 250px;
+	object-fit: cover;
+	filter: grayscale(100%);
+	transition: filter 0.3s ease;
+}
+
+.card:hover .card-img-top {
+	filter: grayscale(0%);
+}
+
+.card-body {
+	padding: 1.5rem;
+}
+
+.card-link {
+	display: block;
+	text-decoration: none;
+	color: inherit;
+	transition: none;
+}
+
+.project-tag {
+	display: inline-block;
+	background-color: transparent;
+	color: var(--secondary);
+	font-size: 0.7rem;
+	padding: 0;
+	border-radius: 0;
+	margin-bottom: 0.75rem;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.card-title {
+	color: var(--accent) !important;
+	font-weight: 600 !important;
+	font-family: 'Crimson Text', serif !important;
+	font-size: 1.3rem !important;
+	margin-bottom: 0.5rem !important;
+}
+
+.card-title-des {
+	font-style: italic !important;
+	color: var(--secondary) !important;
+	font-size: 0.9rem !important;
+	margin-bottom: 0.75rem !important;
+}
+
+.card-text {
+	color: var(--primary) !important;
+	font-size: 0.95rem !important;
+}
+
+.section-divider {
+	border-top: 1px solid var(--border);
+	margin: 3rem 0 2rem 0;
+}
+
+/* Footer */
+.footer {
+	border-top: 1px solid var(--border);
+	padding: 3rem 0 2rem;
+	text-align: center;
+	background: var(--surface);
+}
+
+.footer a {
+	color: var(--accent);
+	font-size: 1.3rem;
+	margin: 0 1rem;
+	transition: color 0.2s;
+}
+
+.footer a:hover {
+	color: var(--rose-gold);
+}
+
+.footer p {
+	font-size: 0.95rem;
+	color: var(--secondary);
+	margin: 0.5rem 0;
+}
 </style>
 </head>
 
 <body>
-	<!-- Navigation --> 
+	<!-- Navigation -->
 	<nav class="navbar navbar-expand-md navbar-light bg-white sticky-top">
 		<div class="container">
 			<a class="navbar-brand " href="index.html"> <img id="mylogo" src="img/logo.png"></a>
@@ -44,207 +193,205 @@
   					</li>
   				</ul>
   			</div>
-  		
+
 	</div>
 	</nav>
 
-	<!-- Introduction and News --> 
+	<!-- Main Content -->
+	<div class="container selected-projects" style="padding-bottom: 8rem; padding-top: 3rem;">
 
-<div class="container selected-projects " style="padding-bottom: 8rem;">
+		<!-- Current Work -->
+		<h2>Current Work</h2>
+		<p style="color: var(--secondary); margin-bottom: 2rem;">Exploratorium, San Francisco (2025-Present)</p>
 
-<!-- <div class="row offset-md-1" style="padding-top: 2rem;">
+		<div class="row justify-content-start">
 
-<div style=""><h6 class="section-heading">ALL</h6></div>
-<div style="padding-left: 4rem;"><h6 class="section-heading">RESEARCH</h6></div>
-<div style="padding-left: 4rem;"><h6 class="section-heading">UX</h6></div>
-
-</div>
- -->
-
-<h2>Select Projects</h2>
-
-<div class="row justify-content-between">
-
-		<div class="col-12 col-lg-4">
-		<div class="card border-0">
-			<a href="Ads Safety.html"><img class="card-img-top" src="Projects/Ads Safety/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Ads Trust and Safety</h6>
-				<h6 class="card-title-des">Google, 2021</h6>
-				<p class="card-text">Understanding the relationship between transparency, control features and safety.</p>
+			<div class="col-12 col-lg-6 mb-4">
+				<a href="case-studies/AI-Scaffolding-Scientific-Inquiry.html" class="card-link">
+					<div class="card border-0">
+						<img class="card-img-top" src="Projects/image3.png" alt="AI Scaffolding Research">
+						<div class="card-body">
+							<span class="project-tag">PRODUCT RESEARCH</span>
+							<h6 class="card-title">AI Scaffolding for Scientific Inquiry</h6>
+							<h6 class="card-title-des">Exploratorium • 2025 (ongoing)</h6>
+							<p class="card-text">Investigating how AI-powered Object Classification Systems support museum visitors' observational inquiry with microscopes.</p>
+							<p style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0;">Rapid prototyping • Interaction Analysis • Design Implications</p>
+						</div>
+					</div>
+				</a>
 			</div>
+
+
+			<div class="col-12 col-lg-6 mb-4">
+				<a href="case-studies/Visitor-Engagement-AI-Exhibits.html" class="card-link">
+					<div class="card border-0">
+						<img class="card-img-top" src="Projects/image1.jpg" alt="Visitor Engagement Research">
+						<div class="card-body">
+							<span class="project-tag">FOUNDTIONAL RESEARCH</span>
+							<h6 class="card-title">Unpacking Learners’ Engagement with AI Exhibits</h6>
+							<h6 class="card-title-des">Exploratorium • 2025 (ongoing)</h6>
+							<p class="card-text">Understanding how museum visitors engage with interactive AI exhibits and what design features support diverse learning pathways.</p>
+							<p style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0;">Ethnographic Field Work • Naturalistic Recording and Abductive Coding</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			
+
 		</div>
-	</div> 
 
-		<div class="col-12 col-lg-4 ">
-		<div class="card border-0">
-			<a href="Crime Mapping.html"><img class="card-img-top" src="Projects/Crime Mapping/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Human-Centered AI Transparency</h6>
-				<h6 class="card-title-des">PhD Dissertation</h6>
-				<p class="card-text">Participatory workshops to collectively understand the workings and effects of AI</p>
+		<!-- PhD Research -->
+		<div class="section-divider"></div>
+
+		<h2>PhD Research</h2>
+		<p style="color: var(--secondary); margin-bottom: 2rem;">Georgia Institute of Technology (2021-2024)</p>
+
+		<div class="row justify-content-start">
+
+			<div class="col-12 col-lg-6 mb-4">
+				<a href="case-studies/Good-Enough-Explanations.html" class="card-link">
+					<div class="card border-0">
+						<img class="card-img-top" src="Projects/Crime Mapping/thumbnail.jpg" alt="Good Enough Explanations">
+						<div class="card-body">
+							<span class="project-tag">GENERATIVE RESEARCH</span>
+							<h6 class="card-title">Good Enough Explanations Framework</h6>
+							<h6 class="card-title-des">PhD Research • 2021-2023</h6>
+							<p class="card-text">Understanding the AI explanation needs of diverse publics. Developed framework defining four essential qualities of effective public AI explanations.</p>
+							<p style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0;">Semi Structured Interviews • Inductive Coding • Framework Creation</p>
+						</div>
+					</div>
+				</a>
 			</div>
+
+			<div class="col-12 col-lg-6 mb-4">
+				<a href="case-studies/Participatory-AI-Toolkit.html" class="card-link">
+					<div class="card border-0">
+						<img class="card-img-top" src="Projects/Crime Mapping/W1.jpg" alt="Participatory Toolkit">
+						<div class="card-body">
+							<span class="project-tag">PARTICIPATORY DESIGN</span>
+							<h6 class="card-title">The Unknowable Algorithm</h6>
+							<h6 class="card-title-des">PhD Research • 2023-2024</h6>
+							<p class="card-text">Designed and validated interactive mapping toolkit enabling diverse publics to collectively investigate civic AI systems. Adopted by 3+ nonprofits for community engagement.</p>
+							<p style="font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0;">Mapping Workshops • Video Analysis and Inductive Coding </p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+		</div>
+
+		<!-- Industry Experience -->
+		<div class="section-divider"></div>
+
+		<h2>Industry Experience</h2>
+
+		<div class="row justify-content-start">
+
+			<div class="col-12 col-lg-6 mb-4">
+				<a href="case-studies/Ads Safety.html" class="card-link">
+					<div class="card border-0">
+						<img class="card-img-top" src="Projects/Ads Safety/thumbnail.jpg" alt="Google Ads Safety">
+						<div class="card-body">
+							<span class="project-tag">PRODUCT RESEARCH</span>
+							<h6 class="card-title">Ads Trust and Safety</h6>
+							<h6 class="card-title-des">Google • 2021</h6>
+							<p class="card-text">Understanding the relationship between transparency, control features and safety in Google Ads.</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-12 col-lg-6 mb-4">
+				<a href="case-studies/Striim.html" class="card-link">
+					<div class="card border-0">
+						<img class="card-img-top" src="Projects/Striim/thumbnail.png" alt="Striim UX Research">
+						<div class="card-body">
+							<span class="project-tag">UX RESEARCH</span>
+							<h6 class="card-title">User Research for Data Management</h6>
+							<h6 class="card-title-des">Striim • Summer 2019</h6>
+							<p class="card-text">Performed user research and redesigned the home page and on-boarding experience of the Striim platform.</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+		</div>
+
+		<!-- Past Academic Projects -->
+		<div class="section-divider"></div>
+
+		<h2>Past Academic Projects</h2>
+
+		<div class="row justify-content-start">
+
+			<div class="col-12 col-lg-4 mb-4">
+				<a href="case-studies/Politics-of-safety.html" class="card-link">
+					<div class="card border-0">
+						<img class="card-img-top" src="Projects/Politics of Safety/thumbnail.jpg" alt="Politics of Safety">
+						<div class="card-body">
+							<h6 class="card-title">Politics of Safety</h6>
+							<p class="card-text">Assessing the limitations of quantizing safety and its ability to exacerbate the gendered safety discourse prevalent in India</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-12 col-lg-4 mb-4">
+				<a href="case-studies/Cherryhome.html" class="card-link">
+					<div class="card border-0">
+						<img class="card-img-top" src="Projects/Cherryhome/thumbnail.jpg" alt="Collective Care">
+						<div class="card-body">
+							<h6 class="card-title">Collective Care</h6>
+							<p class="card-text">Critically examined the assumptions underlying the design of monitoring technologies for elderly care and suggested alternate directions.</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-12 col-lg-4 mb-4">
+				<a href="case-studies/Mindview.html" class="card-link">
+					<div class="card border-0">
+						<img class="card-img-top" src="Projects/Mindview/thumbnail.jpg" alt="Mindview">
+						<div class="card-body">
+							<h6 class="card-title">Mindview</h6>
+							<p class="card-text">Built a futuristic student monitoring tool to support critical thinking about possible negative implications</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+			<div class="col-12 col-lg-4 mb-4">
+				<a href="case-studies/Social-sustainability.html" class="card-link">
+					<div class="card border-0">
+						<img class="card-img-top" src="Projects/Social sustainability of whatsapp/thumbnail.jpg" alt="Social Sustainability">
+						<div class="card-body">
+							<h6 class="card-title">Social Sustainability of WhatsApp</h6>
+							<p class="card-text">Using qualitative research methods, formulated a set of 12 design guidelines to help design socially sustainable Instant Messaging platforms.</p>
+						</div>
+					</div>
+				</a>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<div class="container-fluid" style="padding-top: 8rem;">
+		<div class="footer">
+			<div class=" row text-center">
+				<div class="col-12 social">
+				<a href="https://twitter.com/_shubhangigupta" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.linkedin.com/in/shubhangigupta01/" target="_blank"><i class="fab fa-linkedin"></i></a>
+				</div>
+			</div>
+			<div>
+				<p> Thanks for visiting! Let's stay connected. </p>
+				<p>© Shubhangi Gupta</p>
+		     </div>
 		</div>
 	</div>
-<!-- 
-	<div class="col-12 col-lg-4 ">
-		<div class="card border-0">
-			<a href="CivicAIWorkshop.html"><img class="card-img-top" src="Projects/Workshop/workshop.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Civic AI Mapping Workshops</h6>
-				<p class="card-text">Participatory workshops for critical engagement with civic predictive systems</p>
-			</div>
-		</div>
-	</div>
- -->
-
-	 	<div class="col-12 col-lg-4"">
-		<div class="card border-0">
-			<a href="Striim.html"><img class="card-img-top" src="Projects/Striim/thumbnail.png"></a>
-			<div class="card-body">
-				<h6 class="card-title">User Research for Data Management</h6>
-				<h6 class="card-title-des">Striim, Summer 2019</h6>
-				<p class="card-text">Performed user research and redesigned the home page and on-boarding experience of the Striim platform.</p>
-			</div>
-		</div>
-	</div>
-
-<!-- 
-	<div class="col-12 col-lg-4 ">
-		<div class="card border-0">
-			<a href="Calculating Safety.html"><img class="card-img-top" src="Projects/Calculating Safety/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Calculating Safety</h6>
-				<p class="card-text">Foregrounding the power structures and assumptions embedded in crime data</p>
-			</div>
-		</div>
-	</div> -->
-<!-- 
-	<div class="col-12 col-lg-4">
-		<div class="card border-0">
-			<a href="Ads Safety.html"><img class="card-img-top" src="Projects/Ads Safety/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Ads data</h6>
-				<p class="card-text">Understanding the relationship between transparency, control features and safety.</p>
-			</div>
-		</div>
-	</div> -->
-
-<!-- 	<div class="col-12 col-lg-4 ">
-		<div class="card border-0">
-			<a href="LanguageTech.html"><img class="card-img-top" src="Projects/Language Tech/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Power in language and speech data</h6>
-				<p class="card-text">Examining the risks associated with the use of popular langage and speech data</p>
-			</div>
-		</div>
-	</div> -->
-
-	<!-- <div class="col-12 col-lg-4" style="padding-top: 5rem;">
-		<div class="card border-0">
-			<a href="Ads Safety.html"><img class="card-img-top" src="Projects/Ads Safety/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Ads data</h6>
-				<p class="card-text">Understanding the relationship of data transparency and data control features on a user's feeling of safety</p>
-			</div>
-		</div>
-	</div> -->
-</div>
-
-<h2>Past Projects</h2>
-
-	<div class="row justify-content-between">
-
-	<div class="col-12 col-lg-4 ">
-		<div class="card border-0">
-			<a href="Politics-of-safety.html"><img class="card-img-top" src="Projects/Politics of Safety/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Politics of Safety</h6>
-				<p class="card-text">Assessing the limitations of quantizing safety and its ability to exacerbate the gendered safety discourse prevalent in India</p>
-			</div>
-		</div>
-	</div>
-
-		<div class="col-12 col-lg-4">
-		<div class="card border-0">
-			<a href="Cherryhome.html"><img class="card-img-top" src="Projects/Cherryhome/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Collective Care</h6>
-				<p class="card-text">Critically examined the assumptions underlying the design of monitoring technologies for elderly care and suggested alternate directions.</p></p>
-			</div>
-		</div>
-	</div>
-
-	<div class="col-12 col-lg-4">
-		<div class="card border-0">
-			<a href="Mindview.html"><img class="card-img-top" src="Projects/Mindview/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Mindview</h6>
-				<p class="card-text">Built a futuristic student monitoring tool to support critical thinking about possible negative implications</p>
-			</div>
-		</div>
-	</div>
-
-<!-- 	 	<div class="col-12 col-lg-4" style="padding-top: 5rem;">
-		<div class="card border-0">
-			<a href="Striim.html"><img class="card-img-top" src="Projects/Striim/thumbnail.png"></a>
-			<div class="card-body">
-				<h6 class="card-title">Striim: Summer 2019 internship</h6>
-				<p class="card-text">Performed user research and redesigned the home page and on-boarding experience of the Striim platform.</p>
-			</div>
-		</div>
-	</div> -->
-
-<!-- 	<div class="col-12 col-lg-4" style="padding-top: 5rem;">
-		<div class="card border-0">
-			<a href="Bias-in-hiring.html"><img class="card-img-top" src="Projects/Bias in hiring/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">The stupidity of smart algorithms- A satirical take</h6>
-				<p class="card-text">Used satire to highlight the gender, age and language based bias in data and algorithms</p>
-			</div>
-		</div>
-	</div> -->
-
- 	
-
-	<div class="col-12 col-lg-4" style="padding-top: 5rem;">
-		<div class="card border-0">
-			<a href="Social-sustainability.html"><img class="card-img-top" src="Projects/Social sustainability of whatsapp/thumbnail.jpg"></a>
-			<div class="card-body">
-				<h6 class="card-title">Social Sustainability of WhatsApp</h6>
-				<p class="card-text">Using qualitative research methods, formulated a set of 12 design guidelines to help design socially sustainable Instant Messaging platforms.</p>
-			</div>
-		</div>
-	</div>
-
-
-
-
-</div>
-</div>
-
-
-
-
-<div class="container-fluid" style="padding-top: 8rem;">
-	<div class="footer">
-		<div class=" row text-center">
-			<div class="col-12 social">
-			<a href="https://twitter.com/_shubhangigupta" target="_blank"><i class="fab fa-twitter"></i></a>
-			<a href="https://www.linkedin.com/in/shubhangigupta01/" target="_blank"><i class="fab fa-linkedin"></i></a>
-			</div>
-		</div>
-		<div>
-			<p> Thanks for visiting! Let's stay connected. </p>
-			<p>© Shubhangi Gupta</p>
-	     </div>
-	</div>
-</div>
-
-
-
-
-
 
 </body>
 </html>

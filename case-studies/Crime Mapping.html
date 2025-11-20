@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Human Centered AI Transparency - Shubhangi Gupta</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="../style.css" rel="stylesheet">
+	<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+
+/* REFINED MAUVE PALETTE */
+:root {
+	--primary: #3D3034;
+	--accent: #A47997;
+	--accent-light: #C4A4B7;
+	--secondary: #6B5D5A;
+	--rose-gold: #B76E79;
+	--champagne: #E8D5C4;
+	--taupe: #C9B8AB;
+	--ivory: #FAF7F2;
+	--background: #FAF7F2;
+	--surface: #FFFFFF;
+	--border: #E8DFD6;
+}
+
+body {
+	font-family: 'DM Sans', -apple-system, sans-serif;
+	color: var(--primary);
+	background-color: var(--background);
+	line-height: 1.8;
+	font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Crimson Text', serif;
+	font-weight: 600;
+	color: var(--primary);
+}
+
+/* Progress Bar */
+.progress-bar-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: var(--border);
+	z-index: 9999;
+}
+
+.progress-bar {
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent) 0%, var(--rose-gold) 100%);
+	width: 0%;
+	transition: width 0.1s ease;
+}
+
+/* Navigation */
+.navbar {
+	background-color: var(--surface) !important;
+	border-bottom: 2px solid var(--border);
+	padding: 1.25rem 2rem;
+}
+
+.navbar-nav li {
+	padding-right: 2rem;
+	letter-spacing: 0.2px;
+}
+
+.nav-link {
+	color: var(--secondary) !important;
+	font-weight: 500;
+	font-size: 0.95rem;
+	transition: color 0.2s;
+}
+
+.nav-link:hover {
+	color: var(--accent) !important;
+}
+
+#mylogo {
+	width: 6.5rem;
+}
+
+.case-study-header {
+	background: var(--surface);
+	padding: 3rem 1rem 2rem 1rem;
+	margin-bottom: 0;
+	border-bottom: 1px solid var(--border);
+}
+
+.case-study-header .container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.case-study-header h2 {
+	font-size: 2rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin-bottom: 0.5rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.case-study-header p {
+	font-size: 1.05rem;
+	color: var(--secondary);
+	font-weight: 400;
+	margin-bottom: 0;
+}
+
+.project-meta {
+	display: flex;
+	gap: 1.25rem;
+	margin-top: 1.25rem;
+	flex-wrap: wrap;
+	font-size: 1.05rem;
+}
+
+.meta-item {
+	color: var(--secondary);
+}
+
+.meta-item strong {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+.content-wrapper {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 3rem 1rem;
+}
+
+.at-a-glance {
+	background: var(--surface);
+	border-left: 4px solid var(--accent);
+	padding: 2.5rem;
+	margin: 3rem 0;
+	border-radius: 0 12px 12px 0;
+	box-shadow: 0 2px 12px rgba(164, 121, 151, 0.08);
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--accent);
+}
+
+.at-a-glance h6 {
+	font-family: 'DM Sans', sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+	font-size: 0.7rem;
+	font-weight: 700;
+	color: var(--accent);
+	margin-bottom: 1.5rem;
+}
+
+.at-a-glance p {
+	margin-bottom: 1.25rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+
+.at-a-glance p:last-child {
+	margin-bottom: 0;
+}
+
+.at-a-glance strong {
+	font-weight: 600;
+	color: var(--accent);
+}
+
+.stats-row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 1rem;
+	margin: 2rem 0;
+}
+
+.stat-box {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 1rem 0.75rem;
+	text-align: center;
+}
+
+.stat-number {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: var(--accent);
+	font-family: 'Crimson Text', serif;
+	line-height: 1;
+	margin-bottom: 0.35rem;
+}
+
+.stat-label {
+	font-size: 0.75rem;
+	color: var(--secondary);
+	font-weight: 500;
+}
+
+.project-section h6 {
+	font-size: 1.75rem;
+	font-weight: 600;
+	color: var(--primary);
+	margin: 3.5rem 0 1.5rem 0;
+	font-family: 'Crimson Text', serif;
+}
+
+.insight-box {
+	background-color: var(--surface);
+	border-radius: 12px;
+	padding: 1.5rem 2rem;
+	margin: 1.5rem 0;
+	border: 2px solid var(--border);
+	box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.insight-box h6 {
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: var(--accent);
+	margin: 1rem 0;
+	font-family: 'Crimson Text', serif;
+}
+
+.insight-box p {
+	color: var(--primary);
+	margin-bottom: 0.75rem;
+	line-height: 1.8;
+}
+
+.insight-box ul {
+	margin-top: 1rem;
+}
+
+.insight-box li {
+	margin-bottom: 0.75rem;
+	color: var(--primary);
+}
+
+.quote-box {
+	background: var(--surface);
+	border-left: 4px solid var(--rose-gold);
+	padding: 1.25rem 1.5rem;
+	margin: 1.5rem 0;
+	font-style: italic;
+	color: var(--primary);
+	border-radius: 0 8px 8px 0;
+	font-size: 0.95rem;
+	line-height: 1.7;
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--rose-gold);
+}
+
+.quote-box .quote-author {
+	margin-top: 0.75rem;
+	font-style: normal;
+	font-size: 0.8rem;
+	color: var(--secondary);
+	font-weight: 600;
+}
+
+.impact-highlight {
+	background: linear-gradient(135deg, var(--primary) 0%, #4D3E41 100%);
+	color: white;
+	padding: 3rem 2.75rem;
+	border-radius: 12px;
+	margin: 3rem 0;
+	box-shadow: 0 8px 24px rgba(61, 48, 52, 0.3);
+	position: relative;
+	overflow: hidden;
+}
+
+.impact-highlight::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg, var(--rose-gold) 0%, var(--accent-light) 100%);
+}
+
+.impact-highlight h6 {
+	color: white;
+	font-weight: 600;
+	font-size: 1.4rem;
+	margin-bottom: 1.75rem;
+	font-family: 'Crimson Text', serif;
+}
+
+.impact-highlight p,
+.impact-highlight ul {
+	color: rgba(255, 255, 255, 0.95);
+}
+
+.impact-highlight strong {
+	font-weight: 700;
+	color: var(--champagne);
+}
+
+p {
+	margin-bottom: 1.5rem;
+	color: var(--primary);
+	font-size: 1.05rem;
+}
+
+ul {
+	margin: 1.25rem 0;
+}
+
+li {
+	margin-bottom: 0.875rem;
+	color: var(--primary);
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+	font-weight: 600;
+	transition: color 0.2s;
+}
+
+a:hover {
+	color: var(--accent-light);
+	text-decoration: underline;
+}
+
+strong {
+	font-weight: 600;
+	color: var(--primary);
+}
+
+em {
+	font-style: italic;
+	font-family: 'Crimson Text', serif;
+}
+
+/* Footer */
+.footer {
+	background: var(--surface);
+	border-top: 2px solid var(--border);
+	padding: 3.5rem 0 2.5rem 0;
+	text-align: center;
+	margin-top: 5rem;
+}
+
+.footer p {
+	color: var(--secondary);
+	font-size: 0.9rem;
+}
+
+.social a {
+	color: var(--accent);
+	font-size: 1.75rem;
+	margin: 0 1rem;
+	transition: all 0.3s;
+}
+
+.social a:hover {
+	color: var(--rose-gold);
+	transform: scale(1.1);
+}
+
+.research-question {
+	background-color: var(--ivory);
+	padding: 2rem 2.25rem;
+	border-radius: 8px;
+	border-left: 4px solid var(--accent);
+	margin-top: 2rem;
+	margin-bottom: 2.5rem;
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--accent);
+	box-shadow: 0 2px 8px rgba(164, 121, 151, 0.06);
+	font-size: 1.05rem;
+	line-height: 1.8;
+}
+
+.research-question strong {
+	color: var(--accent);
+	font-weight: 600;
+	display: block;
+	font-size: 0.85rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	margin-bottom: 0.75rem;
+}
+
+.research-question em {
+	color: var(--primary);
+	font-style: italic;
+	font-size: 1.05rem;
+}
+
+.imgrow {
+	display: flex;
+	gap: 1rem;
+	margin: 2rem 0;
+}
+
+.imgcolumn {
+	flex: 1;
+}
+
+.imgcolumn img {
+	width: 100%;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+
+<body>
+	<!-- Progress Bar -->
+	<div class="progress-bar-container">
+		<div class="progress-bar" id="progressBar"></div>
+	</div>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-md navbar-light bg-white sticky-top">
+		<div class="container">
+			<a class="navbar-brand " href="../index.html"> <img id="mylogo" src="../img/logo.png"></a>
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+    			<span class="navbar-toggler-icon"></span>
+  			</button>
+  			<div class="collapse navbar-collapse" id="navbarResponsive">
+  				<ul class="navbar-nav ml-auto">
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../About.html"> About </a>
+  					</li>
+  					<li class="nav-item ">
+  						<a class="nav-link" href="../RecentUpdatesMore.html"> News </a>
+  					</li>
+
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Research.html"> Projects </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Publications.html"> Publications </a>
+  					</li>
+  					<li class="nav-item">
+  						<a class="nav-link" href="../Shubhangi_CV.pdf" target="_blank"> CV </a>
+  					</li>
+  				</ul>
+  			</div>
+
+	</div>
+	</nav>
+
+	<!-- Case Study Header -->
+	<div class="case-study-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h2>Human Centered AI Transparency</h2>
+					<p>Understanding Citizens' Relationships with Civic AI Systems Through Participatory Mapping</p>
+
+					<div class="project-meta">
+						<div class="meta-item"><strong>Timeline:</strong> Aug 2022 - Jul 2024</div>
+						<div class="meta-item"><strong>Organization:</strong> Georgia Institute of Technology</div>
+						<div class="meta-item"><strong>My Role:</strong> Lead Researcher</div>
+						<div class="meta-item"><strong>Type:</strong> Research Through Design</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main Content -->
+	<div class="content-wrapper">
+
+		<!-- At a Glance -->
+		<div class="at-a-glance">
+			<h6>At a Glance</h6>
+			<p><strong>Challenge:</strong> How do users experience, perceive, or relate to the workings and effects of AI systems that mediate their everyday lives, particularly in the context of civic AI systems like predictive policing?</p>
+			<p><strong>Approach:</strong> Conducted participatory mapping workshops with diverse publics to collectively investigate predictive policing as a case study of civic AI transparency.</p>
+			<p><strong>Outcome:</strong> Developed insights into users' explanation needs, their relationship to AI systems, and their ability to identify AI's social impacts through local knowledge and lived experience.</p>
+		</div>
+
+		<!-- Stats -->
+		<div class="stats-row">
+			<div class="stat-box">
+				<div class="stat-number">8</div>
+				<div class="stat-label">Workshops</div>
+			</div>
+			<div class="stat-box">
+				<div class="stat-number">7</div>
+				<div class="stat-label">Stakeholder Groups</div>
+			</div>
+			<div class="stat-box">
+				<div class="stat-number">3</div>
+				<div class="stat-label">Publications</div>
+			</div>
+		</div>
+
+		<!-- Research Challenge -->
+		<div class="project-section">
+			<h6>Research Question</h6>
+
+			<div class="research-question">
+				<strong>Core Question</strong>
+				<em>How do users experience, perceive, or relate to the workings and effects of AI systems that mediate their everyday lives?</em>
+			</div>
+
+			<p>In this work, I explore this broader question in the context of civic AI systems, due to their dominant yet highly invisible nature. Specifically, I select predictive policing as a case study. Predictive policing systems have been in existence for over a decade now making it an ideal case to answer this question.</p>
+		</div>
+
+		<!-- Methods -->
+		<div class="project-section">
+			<h6>Methods</h6>
+
+			<p>To answer this question, I employed a 'research through design' methodology and conducted eight participatory mapping workshops with diverse publics such as police reform groups, city planners, neighborhood and community leaders, civic development agency, educators, and students.</p>
+
+			<p>The workshop call can be found <a href="https://gupta-shubhangi.github.io/CivicAIWorkshop.html" target="_blank">here</a>. The workshops were conducted in person in Atlanta, Georgia located in the Southeast United States. They were scheduled to be 90 mins long. Before each workshop, a short survey was shared with the participants. The survey served two primary purposes: (1) it confirmed participation through an informal registration process, and (2) it provided workshop moderators with background information that was helpful for unique workshops.</p>
+
+			<div class="imgrow">
+				<div class="imgcolumn">
+					<img src="../Projects/Crime Mapping/W1.jpg" alt="Workshop participants engaged in mapping exercise">
+				</div>
+				<div class="imgcolumn">
+					<img src="../Projects//Crime Mapping/W4.jpeg" alt="Workshop materials and mapping tools">
+				</div>
+			</div>
+
+			<p>In the workshop, participants were asked to make spatial predictions as an AI system would. They identified places on the map that they were familiar with and believed a predictive tool may identify as a crime hotspot. They were then asked to reflect on their predictions by considering their own reasoning and the effects of their predictions. The workshops followed a loose protocol that guided such reflection. Participants contemplated an AI system's prediction goal, data type, data source and amount, spatial aggregation of data, and prediction effects in relation to their own speculations. In doing so, moderators prompted participants to consider the socio-political qualities of places they identified in relation to these technical aspects of the AI system. A focus on specific locations revealed spatial, social, political, and historical characteristics relevant to the technical workings of the predictive tool.</p>
+
+			<p>The protocol was documented as a toolkit and shared as a take-away artifact with the workshop participants to support their questioning of AI systems beyond the workshops. It is essential to note that this structure of the toolkit was not rigid and merely acted as a guide to the conversation while allowing the group to deviate into explaining and questioning components of AI systems that were most relevant.</p>
+
+			<img src="../Projects//Crime Mapping/pg1.jpg" alt="Workshop toolkit page" class="center" style="width:60%">
+		</div>
+
+		<!-- Findings -->
+		<div class="project-section">
+			<h6>Findings</h6>
+
+			<div class="insight-box">
+				<h6>Users' Explanation Needs</h6>
+				<p>Effective user explanations consist of processes (1) that are situated in the lives of diverse publics, (2) explain the complex and entangled socio-technical systems that predictive tools interact with, (3) involve ongoing and partial processes, and lastly (4) empower publics to act in ways that promote democratic deployment and regulation of predictive tools.</p>
+			</div>
+
+			<div class="insight-box">
+				<h6>Users' Relation to AI</h6>
+				<p>Users' relate to algorithmic contexts through (1) the predictive domain: the service domain that an AI model becomes a part of—in our case policing, (2) the prediction subject: the people or places that are subject to predictions—in our case neighborhoods, (3) the predictive backdrop: the local and global environment that surrounds predictive systems, and (4) the predictive tool: the tools and models that make predictions.</p>
+			</div>
+
+			<div class="insight-box">
+				<h6>Users' Ability to Identify AI's Social Impacts</h6>
+				<p>Locals directly engage with components of AI systems outside of the 'black box' and can make known, amongst other aspects, the environments AI tools are deployed in, the cultures and norms they invade, and the lived experiences of the problems they attempt to address. As such, local publics possess partial explanations of AI systems that can come together to raise meaningful and grounded questions about the effects of AI systems.</p>
+			</div>
+		</div>
+
+		<!-- Impact -->
+		<div class="impact-highlight">
+			<h6>Impacts</h6>
+
+			<p>In this work, I worked with diverse community groups to study the workings and impacts of civic AI systems as complex socio-technical assemblages. Such collective investigation helped overcome the epistemic challenges presented by opaque AI technologies, resulting in contextual, grounded, and partial understandings of AI, its impacts, and desired futures.</p>
+
+			<p>Additionally it helped promote AI transparency and literacy amongst non-tech stakeholders in accessible and interactive ways. The work was applauded by several local non-profits who showed interest in adapting my methods as long-term community engagement and education strategies.</p>
+
+			<p>Ultimately, this research serves as a guide for AI researchers, civic organizations, as well as policymakers, as they work together to develop safe and equitable AI systems.</p>
+
+			<p>A few groups documented their workshop experiences in the form of blogs Linkedin posts. Click <a href="https://www.thecommonspk12.org/happenings/blog-post-title-four-p4gyw-x43ly-ney98-fyraw-tcx4r" target="_blank">here</a> and <a href="https://www.linkedin.com/posts/debralam_ai-predictive-technologies-activity-7156292156268171265-nXtZ?utm_source=share&utm_medium=member_desktop" target="_blank">here</a> for examples.</p>
+		</div>
+
+		<!-- Related Publications -->
+		<div class="project-section">
+			<h6>Related Publications</h6>
+
+			<p>1. <a href="../Publications/thesis.pdf" target="_blank">Good Enough Explanations: How Can Local Publics Understand and Explain Civic Predictive Systems?</a> Shubhangi Gupta. PhD Dissertation. Georgia Institute of Technology.</p>
+
+			<p>2. <a href="../Publications/Making Smart Cities Explainable.pdf" target="_blank">Making Smart Cities Explainable: What XAI Can Learn from the "Ghost Map"</a>. Shubhangi Gupta, Yanni Loukissas. Late Breaking Works paper at CHI 2023.</p>
+
+			<p>3. <a href="../Publications/DIS_2023_mapping_the_smart_city.pdf" target="_blank">Mapping the Smart City: Participatory approaches to XAI</a>. Shubhangi Gupta. Doctoral Consortium at Designing Interactive Systems (DIS) 2023.</p>
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<div class="container-fluid" style="padding-top: 8rem;">
+		<div class="footer">
+			<div class=" row text-center">
+				<div class="col-12 social">
+				<a href="https://twitter.com/_shubhangigupta" target="_blank"><i class="fab fa-twitter"></i></a>
+				<a href="https://www.linkedin.com/in/shubhangigupta01/" target="_blank"><i class="fab fa-linkedin"></i></a>
+				<a href='mailto:"shubhangi@gatech.edu"' target='_blank'><i class='fa fa-envelope'></i></i></a>
+				</div>
+			</div>
+			<div>
+				<p> Thanks for visiting! Let's stay connected. </p>
+				<p>© Shubhangi Gupta</p>
+		     </div>
+		</div>
+	</div>
+
+	<script>
+		// Progress bar functionality
+		window.addEventListener('scroll', function() {
+			var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+			var scrolled = (winScroll / height) * 100;
+			document.getElementById("progressBar").style.width = scrolled + "%";
+		});
+	</script>
+
+</body>
+</html>
