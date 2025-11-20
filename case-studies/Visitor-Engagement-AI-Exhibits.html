@@ -420,6 +420,28 @@ em {
 </head>
 
 <body>
+	<!-- Password Protection -->
+	<script>
+		(function() {
+			const PASSWORD = 'coolNEWstuff';
+			const sessionKey = 'case_study_auth';
+
+			// Check if already authenticated in this session
+			if (sessionStorage.getItem(sessionKey) !== 'true') {
+				const userPassword = prompt('This case study is password protected. Please enter the password:');
+
+				if (userPassword !== PASSWORD) {
+					alert('Incorrect password. Access denied.');
+					window.location.href = 'Research.html';
+					return;
+				}
+
+				// Store authentication in session
+				sessionStorage.setItem(sessionKey, 'true');
+			}
+		})();
+	</script>
+
 	<!-- Progress Bar -->
 	<div class="progress-bar-container">
 		<div class="progress-bar" id="progressBar"></div>
